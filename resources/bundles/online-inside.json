@@ -581,6 +581,7 @@
   "resources/Retail/Common/Workplace/ShiftOpen.package.min",
   "resources/Retail/Common/Workplace/Tests/Device/Global.package.min",
   "resources/Retail/Core/PageControllerLegacy.package.min",
+  "resources/RetailOffline/AuthFramework-RetailOffline.package.min",
   "resources/Retail_stats/Dialog/RetailStats_Dialog_SaleTreeList.package.min",
   "resources/Retail_stats/RetailStats_FilterPanel.package.min",
   "resources/Retail_stats/RetailStats_SaleTreeList.package.min",
