@@ -65,11 +65,13 @@ module.exports = function declarePlugin(taskParameters, moduleInfo) {
             const outputFileWoExt = path.join(moduleInfo.output, transliterate(relativePathWoExt));
             const outputPath = `${outputFileWoExt}.js`;
             const outputMinJsFile = `${outputFileWoExt}.min.js`;
+            const outputOriginalJsFile = `${outputFileWoExt}.original.js`;
             const outputMinOriginalJsFile = `${outputFileWoExt}.min.original.js`;
 
             if (file.cached) {
                taskParameters.cache.addOutputFile(file.history[0], outputPath, moduleInfo);
                taskParameters.cache.addOutputFile(file.history[0], outputMinJsFile, moduleInfo);
+               taskParameters.cache.addOutputFile(file.history[0], outputOriginalJsFile, moduleInfo);
                taskParameters.cache.addOutputFile(file.history[0], outputMinOriginalJsFile, moduleInfo);
 
                // modulepack is needed to check packed non-minified libraries for correctness in builder unit tests
@@ -175,6 +177,20 @@ module.exports = function declarePlugin(taskParameters, moduleInfo) {
             Object.keys(result).forEach((currentMode) => {
                taskParameters.storePluginTime('typescript', result[currentMode].passedTime, true);
             });
+
+            const { moduleName } = result.development;
+            if (taskParameters.config.interfaces.required.includes(moduleName)) {
+               const outputOriginalPath = outputPath.replace('.js', '.original.js');
+               const interfaceFile = file.clone();
+               interfaceFile.contents = Buffer.from(result.development.text);
+               interfaceFile.compiled = true;
+               interfaceFile.path = outputOriginalPath;
+               interfaceFile.base = moduleInfo.output;
+               taskParameters.cache.addOutputFile(file.history[0], outputOriginalPath, moduleInfo);
+               file.baseInterface = true;
+               this.push(interfaceFile);
+            }
+
             taskParameters.cache.addOutputFile(file.history[0], outputPath, moduleInfo);
 
             /**

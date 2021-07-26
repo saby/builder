@@ -207,6 +207,13 @@ module.exports = function declarePlugin(taskParameters, moduleInfo) {
                newFile.contents = Buffer.from(minText);
                newFile.base = moduleInfo.output;
                newFile.path = outputMinJsFile;
+               if (newFile.baseInterface) {
+                  const interfaceMinifiedFile = file.clone();
+                  interfaceMinifiedFile.contents = Buffer.from(minText);
+                  interfaceMinifiedFile.base = moduleInfo.output;
+                  interfaceMinifiedFile.path = outputMinOriginalJsFile;
+                  this.push(interfaceMinifiedFile);
+               }
                this.push(newFile);
                if (mapText) {
                   this.push(
