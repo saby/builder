@@ -384,6 +384,20 @@ class BuildConfiguration {
       return flagsList;
    }
 
+   // fills interfaces meta with information about dependencies from s3mod
+   getInterfacesMeta() {
+      Object.keys(this.interfaces.provided).forEach((currentKey) => {
+         const [providedModuleName, featureName] = currentKey.split('/');
+         const providedModuleDepends = this.interfaces.depends[providedModuleName];
+         providedModuleDepends.forEach((currentDependency) => {
+            const currentBaseModuleName = `${currentDependency}/${featureName}`;
+            if (this.interfaces.required.includes(currentBaseModuleName)) {
+               this.interfaces.provided[currentKey] = currentBaseModuleName;
+            }
+         });
+      });
+   }
+
    /**
     * Configuration loading with using of the utility executing args. Synchronous loading
     * is the only option here because of common build workflow generating afterwards.
@@ -407,7 +421,8 @@ class BuildConfiguration {
       this.interfaces = {
          providedOrder: [],
          provided: {},
-         required: []
+         required: [],
+         depends: {}
       };
       for (const module of this.rawConfig.modules) {
          const moduleInfo = new ModuleInfo(module, this.outputPath, this.staticServer);
@@ -462,6 +477,9 @@ class BuildConfiguration {
             this.typescriptChanged = true;
          }
          this.modules.push(moduleInfo);
+         if (moduleInfo.depends && moduleInfo.depends.length > 0) {
+            this.interfaces.depends[moduleInfo.outputName] = moduleInfo.depends;
+         }
          if (moduleInfo.featuresRequired.length > 0) {
             moduleInfo.featuresRequired.forEach(
                requiredFeature => this.interfaces.required.push(`${moduleInfo.outputName}/${requiredFeature}`)
@@ -474,6 +492,8 @@ class BuildConfiguration {
             });
          }
       }
+
+      this.getInterfacesMeta();
 
       // templates can be built only if there is a whole pack of required interface modules
       // for templates build
