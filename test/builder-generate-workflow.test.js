@@ -2994,6 +2994,93 @@ describe('gulp/builder/generate-workflow.js', () => {
       await clearWorkspace();
    });
 
+   it('check interfaces build and packing', async() => {
+      const fixtureFolder = path.join(__dirname, 'fixture/builder-generate-workflow/interfaces');
+      const correctResultsFolder = path.join(fixtureFolder, 'compiledCorrectResult');
+      const checkResults = async(correctResultName) => {
+         const debugCorrectResult = await fs.readFile(
+            path.join(correctResultsFolder, `${correctResultName}.js`),
+            'utf8'
+         );
+         const minifiedCorrectResult = await fs.readFile(
+            path.join(correctResultsFolder, `${correctResultName}.min.js`),
+            'utf8'
+         );
+         const currentDebugResult = await fs.readFile(
+            path.join(outputFolder, 'ModuleWithAPI', 'scope.js'),
+            'utf8'
+         );
+         const currentMinifiedResult = await fs.readFile(
+            path.join(outputFolder, 'ModuleWithAPI', 'scope.min.js'),
+            'utf8'
+         );
+
+         debugCorrectResult.should.equal(currentDebugResult);
+         minifiedCorrectResult.should.equal(currentMinifiedResult);
+      };
+
+      await prepareTest(fixtureFolder);
+
+      const config = {
+         cache: cacheFolder,
+         output: outputFolder,
+         typescript: true,
+         minimize: true,
+         modules: [
+            {
+               name: 'Module1',
+               path: path.join(sourceFolder, 'Module1'),
+               depends: ['ModuleWithAPI'],
+               featuresProvided: ['scope']
+            },
+            {
+               name: 'Module2',
+               path: path.join(sourceFolder, 'Module2'),
+               depends: ['ModuleWithAPI'],
+               featuresProvided: ['scope']
+            },
+            {
+               name: 'ModuleWithAPI',
+               path: path.join(sourceFolder, 'ModuleWithAPI'),
+               featuresRequired: ['scope']
+            }
+         ]
+      };
+      await fs.writeJSON(configPath, config);
+
+
+      await runWorkflowWithTimeout();
+
+      // check if there is a provider of second interface module and created
+      // an alias if there is an actual dependency of old base interface content
+      await checkResults('withBaseInterfaceDependency');
+
+      let providedContent = await fs.readFile(
+         path.join(sourceFolder, 'Module2/scope.ts'),
+         'utf8'
+      );
+      providedContent = providedContent.replace('export { IUser };', '');
+      await fs.outputFile(
+         path.join(sourceFolder, 'Module2/scope.ts'),
+         providedContent
+      );
+
+      // check if there is a provider of second interface module and
+      // no extra aliases were created if there is no need in those ones
+      await runWorkflowWithTimeout();
+      await checkResults('commonPackedInterface');
+
+      // remove second provider and check that base interface will be packed
+      // with a first one
+      delete config.modules[1].featuresProvided;
+      await fs.writeJSON(configPath, config);
+      await runWorkflowWithTimeout();
+      await checkResults('packedWithFirstProvider');
+
+
+      await clearWorkspace();
+   });
+
    it('compile json to ts', async() => {
       const checkFiles = async() => {
          const resultsFiles = await fs.readdir(moduleOutputFolder);
