@@ -3015,8 +3015,8 @@ describe('gulp/builder/generate-workflow.js', () => {
             'utf8'
          );
 
-         debugCorrectResult.should.equal(currentDebugResult);
-         minifiedCorrectResult.should.equal(currentMinifiedResult);
+         removeRSymbol(debugCorrectResult).should.equal(removeRSymbol(currentDebugResult));
+         removeRSymbol(minifiedCorrectResult).should.equal(removeRSymbol(currentMinifiedResult));
       };
 
       await prepareTest(fixtureFolder);
