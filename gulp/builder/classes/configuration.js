@@ -388,7 +388,7 @@ class BuildConfiguration {
    getInterfacesMeta() {
       Object.keys(this.interfaces.provided).forEach((currentKey) => {
          const [providedModuleName, featureName] = currentKey.split('/');
-         const providedModuleDepends = this.interfaces.depends[providedModuleName];
+         const providedModuleDepends = this.interfaces.depends[providedModuleName] || [];
          providedModuleDepends.forEach((currentDependency) => {
             const currentBaseModuleName = `${currentDependency}/${featureName}`;
             if (this.interfaces.required.includes(currentBaseModuleName)) {
