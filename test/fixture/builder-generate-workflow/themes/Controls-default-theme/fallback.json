@@ -1,0 +1,4 @@
+{
+  "--test-mixin": "'mixin for IE there'",
+  "--test-var": "'variable for IE'"
+}
