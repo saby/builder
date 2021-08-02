@@ -191,6 +191,132 @@ describe('gulp/builder/generate-workflow.js', () => {
       await clearWorkspace();
    });
 
+   it('compile themes', async() => {
+      const fixtureFolder = path.join(__dirname, 'fixture/builder-generate-workflow/themes');
+      await prepareTest(fixtureFolder);
+      const checkBasicResults = async() => {
+         // check if there is a themes folder with generated default theme in it
+         (await isRegularFile(path.join(outputFolder, 'themes'), 'default.css')).should.equal(true);
+         const defaultThemeContent = await fs.readFile(path.join(outputFolder, 'themes', 'default.css'), 'utf8');
+
+         // check these parameters in compiled theme:
+         // 1) should be packed all theme parts of default theme
+         // 2) in controls part of default theme should be a single class with css properties
+         // without any duplicates that are in source less files
+         // 3) each theme part should be separated with a special comment section above each one of them
+         defaultThemeContent.should.includes('/* Controls-default-theme/theme */\n' +
+            '.controls_theme-default {\n' +
+            '   --background-color: #fff;\n' +
+            '   --unaccented_background-color: #f8f8f8;\n' +
+            '   --hover_background-color: #f0f5fb;\n' +
+            '   --unaccented_color: #999;\n' +
+            '   --icon: url(\'/resources/Controls-default-theme/img/test.svg\');\n' +
+            '   --readonly_color: #ccc;\n' +
+            '   --invalid_border-color: var(--danger_border-color);\n' +
+            '   --invalid_focus_background-color: var(--danger_same_background-color);\n' +
+            '   --marker_color: #ff7033;\n' +
+            '   --border-color: #ccc;\n' +
+            '   --separator_color: #eaeaea;\n' +
+            '   --readonly_marker-color: #313e78\n' +
+            '}');
+         defaultThemeContent.should.includes('/* TestModule-default-theme/theme */\n' +
+            '.testmodule_theme-default {\n' +
+            '   --background-color: #aaa;\n' +
+            '   --readonly_color: #fff\n' +
+            '}');
+
+         // check these parameters in compiled module style:
+         // 1) there is a default value for each property with css variables for usage in IE
+         // 2) css variables parameters remains in compiled style
+         const moduleStyleResult = await fs.readFile(path.join(outputFolder, 'Module', 'Stable.css'), 'utf8');
+         moduleStyleResult.should.equal('.test-selector {\n' +
+            '  test-mixin: \'mixin for IE there\';\n' +
+            '  test-mixin: var(--test-mixin);\n' +
+            '  test-var: \'variable for IE\';\n' +
+            '  test-var: var(--test-var);\n' +
+            '  display: -ms-grid;\n' +
+            '  display: grid;\n' +
+            '  -ms-grid-columns: 1fr 1fr;\n' +
+            '  grid-template-columns: 1fr 1fr;\n' +
+            '  -ms-grid-rows: auto;\n' +
+            '  grid-template-rows: auto;\n' +
+            '}\n');
+      };
+
+      const config = {
+         cache: cacheFolder,
+         output: outputFolder,
+         less: true,
+         typescript: true,
+         joinedMeta: true,
+         modules: [
+            {
+               name: 'Controls',
+               path: path.join(sourceFolder, 'Controls')
+            },
+            {
+               name: 'Controls-default-theme',
+               path: path.join(sourceFolder, 'Controls-default-theme')
+            },
+            {
+               name: 'Module',
+               path: path.join(sourceFolder, 'Module')
+            },
+            {
+               name: 'TestModule',
+               path: path.join(sourceFolder, 'TestModule')
+            },
+            {
+               name: 'TestModule-default-theme',
+               path: path.join(sourceFolder, 'TestModule-default-theme')
+            }
+         ]
+      };
+      await fs.writeJSON(configPath, config);
+
+      // run flow
+      await runWorkflowWithTimeout();
+      await checkBasicResults();
+
+      // run flow again to check incremental build works properly
+      await runWorkflowWithTimeout();
+      await checkBasicResults();
+
+      // change fallback to check if styles will be regenerated after rebuild
+      const fallbackPath = path.join(sourceFolder, 'Controls-default-theme', 'fallback.json');
+      const fallbackContent = await fs.readJson(fallbackPath);
+      fallbackContent['--test-mixin'] = "'updated mixin for IE there'";
+      await fs.outputJson(fallbackPath, fallbackContent);
+
+      // remove joinedMeta flag from config to check themes meta for jinnee post-processing
+      delete config.joinedMeta;
+      await fs.writeJSON(configPath, config);
+      await runWorkflowWithTimeout();
+
+      const moduleStyleContent = await fs.readFile(path.join(outputFolder, 'Module', 'Stable.css'), 'utf8');
+      moduleStyleContent.should.equal('.test-selector {\n' +
+         '  test-mixin: \'updated mixin for IE there\';\n' +
+         '  test-mixin: var(--test-mixin);\n' +
+         '  test-var: \'variable for IE\';\n' +
+         '  test-var: var(--test-var);\n' +
+         '  display: -ms-grid;\n' +
+         '  display: grid;\n' +
+         '  -ms-grid-columns: 1fr 1fr;\n' +
+         '  grid-template-columns: 1fr 1fr;\n' +
+         '  -ms-grid-rows: auto;\n' +
+         '  grid-template-rows: auto;\n' +
+         '}\n');
+      let themesMetaContent = await fs.readFile(path.join(outputFolder, 'themes.json'), 'utf8');
+      themesMetaContent.should.equal('{"themes/default.css":["TestModule-default-theme/theme.css","Controls-default-theme/theme.css"]}\n');
+
+      await runWorkflowWithTimeout();
+
+      themesMetaContent = await fs.readFile(path.join(outputFolder, 'themes.json'), 'utf8');
+      themesMetaContent.should.equal('{"themes/default.css":["TestModule-default-theme/theme.css","Controls-default-theme/theme.css"]}\n');
+
+      await clearWorkspace();
+   });
+
    it('process svg', async() => {
       const fixtureFolder = path.join(__dirname, 'fixture/builder-generate-workflow/process-svg');
       await prepareTest(fixtureFolder);
