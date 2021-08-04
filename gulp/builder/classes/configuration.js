@@ -261,6 +261,13 @@ class BuildConfiguration {
       // because there are configs of custom packages to be used in further rebuilds.
       this.localStand = (this.cachePath.includes('.genie') || !this.distributive) && this.sources;
 
+      // forcefully disable tsc compiler for local stand to save a lot of time in stand build
+      // until task https://online.sbis.ru/opendoc.html?guid=ab3c887b-83f5-447b-b929-875dbf444824
+      // is done
+      if (this.localStand) {
+         this.tsc = false;
+      }
+
       if (!this.isReleaseMode || this.localStand) {
          this.outputPath = this.rawConfig.output.replace(/\\/g, '/');
       } else {
