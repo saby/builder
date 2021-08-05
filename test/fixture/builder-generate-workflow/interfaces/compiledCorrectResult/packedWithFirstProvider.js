@@ -2,7 +2,7 @@ define("ModuleWithAPI/scope_old", ["require", "exports", "ModuleWithAPI/scope.d"
     "use strict";
     return scope_d_1.scope;
 });
-define("ModuleWithAPI/scope",["require", "exports", "Module1/scope"],function(require, exports, scope) {Object.defineProperty(exports, "__esModule", { value: true });exports = scope; });
+define("ModuleWithAPI/scope",["Module1/scope"],function(scope) {return scope; });
 define('Module1/scope', [
     'require',
     'exports',
