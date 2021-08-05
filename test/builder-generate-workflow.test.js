@@ -306,13 +306,21 @@ describe('gulp/builder/generate-workflow.js', () => {
          '  -ms-grid-rows: auto;\n' +
          '  grid-template-rows: auto;\n' +
          '}\n');
-      let themesMetaContent = await fs.readFile(path.join(outputFolder, 'themes.json'), 'utf8');
-      themesMetaContent.should.equal('{"themes/default.css":["TestModule-default-theme/theme.css","Controls-default-theme/theme.css"]}\n');
+      let themesMetaContent = await fs.readJson(path.join(outputFolder, 'themes.json'));
+      themesMetaContent.hasOwnProperty('themes/default.css').should.equal(true);
+      themesMetaContent['themes/default.css'].should.have.members([
+         'TestModule-default-theme/theme.css',
+         'Controls-default-theme/theme.css'
+      ]);
 
       await runWorkflowWithTimeout();
 
-      themesMetaContent = await fs.readFile(path.join(outputFolder, 'themes.json'), 'utf8');
-      themesMetaContent.should.equal('{"themes/default.css":["TestModule-default-theme/theme.css","Controls-default-theme/theme.css"]}\n');
+      themesMetaContent = await fs.readJson(path.join(outputFolder, 'themes.json'));
+      themesMetaContent.hasOwnProperty('themes/default.css').should.equal(true);
+      themesMetaContent['themes/default.css'].should.have.members([
+         'TestModule-default-theme/theme.css',
+         'Controls-default-theme/theme.css'
+      ]);
 
       await clearWorkspace();
    });
