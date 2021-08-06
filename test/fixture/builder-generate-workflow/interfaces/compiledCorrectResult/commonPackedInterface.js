@@ -1,4 +1,4 @@
-define("ModuleWithAPI/scope",["require", "exports", "Module2/scope"],function(require, exports, scope) {Object.defineProperty(exports, "__esModule", { value: true });exports = scope; });
+define("ModuleWithAPI/scope",["Module2/scope"],function(scope) {return scope; });
 define('Module2/scope', [
     'require',
     'exports'

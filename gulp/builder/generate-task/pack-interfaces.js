@@ -109,9 +109,9 @@ module.exports = function generateTaskForInterfacePacking(taskParameters) {
 
                // create an alias for provider in base interface module and return it as a result
                const aliasContent = `define("${currentInterface}",` +
-                  `["require", "exports", "${lastProvider}"],` +
-                  `function(require, exports, ${callbackName}) {` +
-                  `Object.defineProperty(exports, "__esModule", { value: true });exports = ${callbackName}; });\n`;
+                  `["${lastProvider}"],` +
+                  `function(${callbackName}) {` +
+                  `return ${callbackName}; });\n`;
 
                await processBaseInterfaceContent(
                   output,
