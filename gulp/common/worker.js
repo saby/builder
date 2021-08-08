@@ -8,30 +8,10 @@
 const fs = require('fs-extra');
 const path = require('path');
 try {
-   /**
-    * Trying to get worker's working directory.
-    * If occurs an error, we will get working
-    * directory from node.js main process cwd
-    * stashed in workerpool environment
-    * @returns {*}
-    */
-   function checkCWDAvailability() {
-      try {
-         const currentDir = process.cwd();
-         return currentDir;
-      } catch (error) {
-         console.log('cwd lost. Probably directory of current node.js process was removed.');
-         return false;
-      }
-   }
-
-   // не всегда понятно по 10 записям, откуда пришёл вызов.
+   // increase stack limit to 100 lines to get a better understanding of
+   // an origin of an error, sometimes default 10 lines of stack of the error
+   // isn't enough to understand what exactly has happened here
    Error.stackTraceLimit = 100;
-
-   if (!checkCWDAvailability()) {
-      console.log('Changing worker\'s cwd to node.js main process cwd');
-      process.chdir(process.env['main-process-cwd']);
-   }
 
    // логгер - прежде всего
    require('../../lib/logger').setWorkerLogger(process.env.logs);
