@@ -225,11 +225,23 @@ describe('gulp/builder/generate-workflow.js', () => {
             '   --readonly_color: #fff\n' +
             '}');
 
-         // check these parameters in compiled module style:
-         // 1) there is a default value for each property with css variables for usage in IE
-         // 2) css variables parameters remains in compiled style
          const moduleStyleResult = await fs.readFile(path.join(outputFolder, 'Module', 'Stable.css'), 'utf8');
          moduleStyleResult.should.equal('.test-selector {\n' +
+            '  test-mixin: var(--test-mixin);\n' +
+            '  test-var: var(--test-var);\n' +
+            '  display: -ms-grid;\n' +
+            '  display: grid;\n' +
+            '  -ms-grid-columns: 1fr 1fr;\n' +
+            '  grid-template-columns: 1fr 1fr;\n' +
+            '  -ms-grid-rows: auto;\n' +
+            '  grid-template-rows: auto;\n' +
+            '}\n');
+
+         // check these parameters in compiled module style for ie:
+         // 1) there is a default value for each property with css variables for usage in IE
+         // 2) css variables parameters remains in compiled style
+         const moduleStyleResultForIE = await fs.readFile(path.join(outputFolder, 'Module', 'Stable_ie.css'), 'utf8');
+         moduleStyleResultForIE.should.equal('.test-selector {\n' +
             '  test-mixin: \'mixin for IE there\';\n' +
             '  test-mixin: var(--test-mixin);\n' +
             '  test-var: \'variable for IE\';\n' +
@@ -295,6 +307,17 @@ describe('gulp/builder/generate-workflow.js', () => {
 
       const moduleStyleContent = await fs.readFile(path.join(outputFolder, 'Module', 'Stable.css'), 'utf8');
       moduleStyleContent.should.equal('.test-selector {\n' +
+         '  test-mixin: var(--test-mixin);\n' +
+         '  test-var: var(--test-var);\n' +
+         '  display: -ms-grid;\n' +
+         '  display: grid;\n' +
+         '  -ms-grid-columns: 1fr 1fr;\n' +
+         '  grid-template-columns: 1fr 1fr;\n' +
+         '  -ms-grid-rows: auto;\n' +
+         '  grid-template-rows: auto;\n' +
+         '}\n');
+      const moduleStyleContentForIE = await fs.readFile(path.join(outputFolder, 'Module', 'Stable_ie.css'), 'utf8');
+      moduleStyleContentForIE.should.equal('.test-selector {\n' +
          '  test-mixin: \'updated mixin for IE there\';\n' +
          '  test-mixin: var(--test-mixin);\n' +
          '  test-var: \'variable for IE\';\n' +
@@ -419,7 +442,8 @@ describe('gulp/builder/generate-workflow.js', () => {
             'en.json',
             'en.json.js',
             'en.less',
-            'en.css'
+            'en.css',
+            'en_ie.css'
          ]);
          const currentDictDirectory = path.join(moduleOutputFolder, 'lang/en');
          (await fs.readJson(path.join(currentDictDirectory, 'en.json'))).should.deep.equal({
@@ -562,10 +586,13 @@ describe('gulp/builder/generate-workflow.js', () => {
       resultsFiles.should.have.members([
          'Error.less',
          'ForChange.css',
+         'ForChange_ie.css',
          'ForChange.less',
          'ForRename_old.css',
+         'ForRename_old_ie.css',
          'ForRename_old.less',
          'Stable.css',
+         'Stable_ie.css',
          'Stable.less',
          'module-dependencies.json'
       ]);
@@ -574,6 +601,20 @@ describe('gulp/builder/generate-workflow.js', () => {
 
       // autoprefixer enabled by default, so css result must have all needed prefixes
       stableCss.replace(/\n$/, '').should.equal('.test-selector {\n' +
+         '  test-mixin: var(--test-mixin);\n' +
+         '  test-var: var(--test-var);\n' +
+         '  display: -ms-grid;\n' +
+         '  display: grid;\n' +
+         '  -ms-grid-columns: 1fr 1fr;\n' +
+         '  grid-template-columns: 1fr 1fr;\n' +
+         '  -ms-grid-rows: auto;\n' +
+         '  grid-template-rows: auto;\n' +
+         '}');
+
+      const stableCssForIE = await fs.readFile(path.join(moduleOutputFolder, 'Stable_ie.css'), 'utf8');
+
+      // autoprefixer enabled by default, so css result must have all needed prefixes
+      stableCssForIE.replace(/\n$/, '').should.equal('.test-selector {\n' +
          '  test-mixin: undefined;\n' +
          '  test-mixin: var(--test-mixin);\n' +
          '  test-var: undefined;\n' +
@@ -605,10 +646,13 @@ describe('gulp/builder/generate-workflow.js', () => {
       resultsFiles.should.have.members([
          'Error.less',
          'ForChange.css',
+         'ForChange_ie.css',
          'ForChange.less',
          'ForRename_new.css',
+         'ForRename_new_ie.css',
          'ForRename_new.less',
          'Stable.css',
+         'Stable_ie.css',
          'module-dependencies.json',
          'Stable.less'
       ]);
@@ -820,14 +864,20 @@ describe('gulp/builder/generate-workflow.js', () => {
       resultsFiles.should.have.members([
          'Error.less',
          'ForChange.css',
+         'ForChange_ie.css',
          'ForChange.less',
          'ForRename_old.css',
+         'ForRename_old_ie.css',
          'ForRename_old.less',
          'Stable.css',
+         'Stable_ie.css',
          'Stable.less',
          'ForChange.min.css',
+         'ForChange_ie.min.css',
          'ForRename_old.min.css',
-         'Stable.min.css'
+         'ForRename_old_ie.min.css',
+         'Stable.min.css',
+         'Stable_ie.min.css'
       ]);
       const sbis3controlsDirectoryExists = await fs.pathExists(path.join(patchOutputFolder, 'SBIS3.CONTROLS'));
       sbis3controlsDirectoryExists.should.equal(false);
@@ -1947,10 +1997,14 @@ describe('gulp/builder/generate-workflow.js', () => {
             'contents.min.json.br',
             'contents.min.json.gz',
             'Stable.css',
+            'Stable_ie.css',
             'Stable.less',
             'Stable.min.css',
             'Stable.min.css.gz',
             'Stable.min.css.br',
+            'Stable_ie.min.css',
+            'Stable_ie.min.css.gz',
+            'Stable_ie.min.css.br',
             'cbuc-icons.eot',
             'bundlesRoute.json',
             'module-dependencies.json',
@@ -2746,8 +2800,8 @@ describe('gulp/builder/generate-workflow.js', () => {
          const packedHtml = await fs.readFile(path.join(outputFolder, 'TestModule/testPage.html'), 'utf8');
          const correctHtmlResult = await fs.readFile(path.join(fixtureFolder, 'correctSingleHtmlResult.html'), 'utf8');
          packedHtml.should.equal(correctHtmlResult);
-         const staticCssPackage = await fs.readFile(path.join(outputFolder, 'TestModule/static_packages/640357cdcd290233e6f57f9cbc903632.min.css'), 'utf8');
-         staticCssPackage.should.equal('.test-selector{test-var:undefined;test-var:var(--test-var);background:url(../Test/image/test.png)}');
+         const staticCssPackage = await fs.readFile(path.join(outputFolder, 'TestModule/static_packages/0494e79ce880db8c96f0617690bb840a.min.css'), 'utf8');
+         staticCssPackage.should.equal('.test-selector{test-var:var(--test-var);background:url(../Test/image/test.png)}');
 
          // in single service there should be static url for cdn
          packedHtml.includes('href="/cdn/EmojiFont/1.0.1/TFEmojiFont.woff2"').should.equal(true);
@@ -2760,8 +2814,8 @@ describe('gulp/builder/generate-workflow.js', () => {
          const packedHtml = await fs.readFile(path.join(outputFolder, 'TestModule/testPage.html'), 'utf8');
          const correctHtmlResult = await fs.readFile(path.join(fixtureFolder, 'correctMultiHtmlResult.html'), 'utf8');
          packedHtml.should.equal(correctHtmlResult);
-         const staticCssPackage = await fs.readFile(path.join(outputFolder, 'TestModule/static_packages/d408360c83221ea67a00d8b16bd8cd4d.min.css'), 'utf8');
-         staticCssPackage.should.equal('.test-selector{test-var:undefined;test-var:var(--test-var);background:url(../Test/image/test.png?x_module=%{MODULE_VERSION_STUB=TestModule})}');
+         const staticCssPackage = await fs.readFile(path.join(outputFolder, 'TestModule/static_packages/845982aa40dc71d6fc38961d7b87287f.min.css'), 'utf8');
+         staticCssPackage.should.equal('.test-selector{test-var:var(--test-var);background:url(../Test/image/test.png?x_module=%{MODULE_VERSION_STUB=TestModule})}');
 
          // in multi service there should be placeholder for cdn in url
          packedHtml.includes('href="%{CDN_ROOT}EmojiFont/1.0.1/TFEmojiFont.woff2"').should.equal(true);
