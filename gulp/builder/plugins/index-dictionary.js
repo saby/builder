@@ -30,7 +30,11 @@ module.exports = function declarePlugin(taskParameters, moduleInfo) {
          try {
             // нам нужны только css и json локализации
             const locale = path.basename(path.dirname(file.path));
-            if (!['.json', '.css', '.less'].includes(file.extname) || !taskParameters.config.localizations.includes(locale)) {
+            if (
+               !['.json', '.css', '.less'].includes(file.extname) ||
+               !taskParameters.config.localizations.includes(locale) ||
+               file.compiledForIE
+            ) {
                callback(null, file);
                taskParameters.storePluginTime('index localization dictionary', startTime);
                return;

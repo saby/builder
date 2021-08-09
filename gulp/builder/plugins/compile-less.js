@@ -198,7 +198,9 @@ function compileLess(taskParameters, moduleInfo, gulpModulesInfo) {
             }
 
             if (file.cached) {
-               taskParameters.cache.addOutputFile(file.history[0], getOutput(file, '.css'), moduleInfo);
+               const outputPath = getOutput(file, '.css');
+               taskParameters.cache.addOutputFile(file.history[0], outputPath, moduleInfo);
+               taskParameters.cache.addOutputFile(file.history[0], outputPath.replace('.css', '_ie.css'), moduleInfo);
                callback(null, file);
                return;
             }
@@ -220,6 +222,7 @@ function compileLess(taskParameters, moduleInfo, gulpModulesInfo) {
                if (taskParameters.cache.compareWithCompiled(moduleInfo, relativeFilePath)) {
                   const newFile = file.clone();
                   const outputPath = getOutput(file, '.css');
+                  const outputPathForIE = outputPath.replace('.css', '_ie.css');
                   newFile.path = outputPath;
                   newFile.base = moduleInfo.output;
                   if (!file.isLangCss) {
@@ -229,7 +232,17 @@ function compileLess(taskParameters, moduleInfo, gulpModulesInfo) {
                   }
                   file.useSymlink = true;
                   this.push(newFile);
+
+                  // also symlink compiled version for IE
+                  const newFileForIE = newFile.clone();
+                  newFileForIE.path = outputPathForIE;
+                  if (!file.isLangCss) {
+                     newFileForIE.origin = compiledPath.replace('.css', '_ie.css');
+                  }
+                  this.push(newFileForIE);
+
                   taskParameters.cache.addOutputFile(file.history[0], outputPath, moduleInfo);
+                  taskParameters.cache.addOutputFile(file.history[0], outputPathForIE, moduleInfo);
                   taskParameters.cache.addDependencies(
                      moduleInfo.appRoot,
                      file.history[0],
@@ -308,6 +321,7 @@ function compileLess(taskParameters, moduleInfo, gulpModulesInfo) {
                const { compiled } = result;
                const outputPath = getOutput(file, '.css');
                taskParameters.cache.addOutputFile(file.history[0], outputPath, moduleInfo);
+               taskParameters.cache.addOutputFile(file.history[0], outputPath.replace('.css', '_ie.css'), moduleInfo);
                taskParameters.cache.addDependencies(
                   moduleInfo.appRoot,
                   file.history[0],
@@ -320,6 +334,16 @@ function compileLess(taskParameters, moduleInfo, gulpModulesInfo) {
                newFile.base = moduleInfo.output;
                newFile.lessSource = file.contents;
                this.push(newFile);
+
+               if (compiled.textForIE) {
+                  const newFileForIE = file.clone();
+                  newFileForIE.contents = Buffer.from(compiled.textForIE);
+                  newFileForIE.path = outputPath.replace('.css', '_ie.css');
+                  newFileForIE.base = moduleInfo.output;
+                  newFileForIE.lessSource = file.contents;
+                  newFileForIE.compiledForIE = true;
+                  this.push(newFileForIE);
+               }
             }
          } catch (error) {
             taskParameters.cache.markFileAsFailed(file.history[0]);
