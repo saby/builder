@@ -487,6 +487,7 @@
   "resources/CACore/packages/RenewalWrapVDOM.package.min",
   "resources/CACore/packages/Revoke.package.min",
   "resources/CACore/packages/cacore_petition.package.min",
+  "resources/CACore/packages/CACheckers.package.min",
   "resources/PopupNotifications/popup-notifications.package.min",
   "resources/PowerOfAttorney/packages/poa_list.package.min",
   "resources/Presto/Restaurants/OrdersExtended/OrdersExtended.min",
