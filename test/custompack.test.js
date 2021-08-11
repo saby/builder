@@ -155,7 +155,7 @@ describe('custompack', () => {
       const jsPackageResult = await fs.readFile(resultsToRead[1], 'utf8');
       const correctCssPackageResult = await fs.readFile(path.join(applicationRoot, 'packcss/correct-only-styles.package.min.css'), 'utf8');
       cssPackageResult.should.equal(correctCssPackageResult);
-      jsPackageResult.should.equal('(function(){define(\'css!InterfaceModule1/moduleStyle\',[\'css!configs/only-styles.package\'],\'\');})();');
+      jsPackageResult.should.equal('(function(){var isMSIE = typeof window !== \'undefined\' && navigator && navigator.appVersion.match(/MSIE\\s+(\\d+)/);if (isMSIE) {define(\'css!InterfaceModule1/moduleStyle\',[\'css!configs/only-styles.package_ie\'],\'\');} else {define(\'css!InterfaceModule1/moduleStyle\',[\'css!configs/only-styles.package\'],\'\');}})();');
       resultsToRead.forEach(async(currentPath) => {
          await fs.remove(currentPath);
       });
