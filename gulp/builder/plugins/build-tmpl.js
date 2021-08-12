@@ -207,6 +207,9 @@ module.exports = function declarePlugin(taskParameters, moduleInfo) {
             if (file.cdnLinked) {
                result.cdnLinked = true;
             }
+            if (newText.startsWith('define')) {
+               result.text = newText;
+            }
             moduleInfo.cache.storeBuildedMarkup(relativeFilePath, result);
             newText = result.text;
 
