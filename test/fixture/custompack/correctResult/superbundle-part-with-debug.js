@@ -1,4 +1,4 @@
-(function(){define('css!InterfaceModule1/moduleStyle',['css!superbundle-for-builder-tests.package'],'');define('css!InterfaceModule1/amdModule',['css!superbundle-for-builder-tests.package'],'');})();
+(function(){var isMSIE = typeof window !== 'undefined' && navigator && navigator.appVersion.match(/MSIE\s+(\d+)/);if (isMSIE) {define('css!InterfaceModule1/moduleStyle',['css!superbundle-for-builder-tests.package_ie'],'');define('css!InterfaceModule1/amdModule',['css!superbundle-for-builder-tests.package_ie'],'');} else {define('css!InterfaceModule1/moduleStyle',['css!superbundle-for-builder-tests.package'],'');define('css!InterfaceModule1/amdModule',['css!superbundle-for-builder-tests.package'],'');}})();
 define("InterfaceModule1/library", ["require", "exports", "InterfaceModule1/_private/module1", "InterfaceModule1/_private/module2"], function (require, exports, module1_1, module2_1) {
     'use strict';
     Object.defineProperty(exports, "__esModule", { value: true });
