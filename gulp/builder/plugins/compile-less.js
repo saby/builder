@@ -335,7 +335,7 @@ function compileLess(taskParameters, moduleInfo, gulpModulesInfo) {
                newFile.lessSource = file.contents;
                this.push(newFile);
 
-               if (compiled.textForIE) {
+               if (typeof compiled.textForIE === 'string') {
                   const newFileForIE = file.clone();
                   newFileForIE.contents = Buffer.from(compiled.textForIE);
                   newFileForIE.path = outputPath.replace('.css', '_ie.css');
