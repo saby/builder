@@ -591,6 +591,7 @@
   "resources/RetailOffline/RetailCore-RetailOffline.package.min",
   "resources/RetailOffline/RetailOffline-superbundle.package.min",
   "resources/RetailOffline/SBIS3Plugin-RetailOffline.package.min",
+  "resources/RetailOffline/PriceFormation-RetailOffline.package.min",
   "resources/Retail_stats/Dialog/RetailStats_Dialog_SaleTreeList.package.min",
   "resources/Retail_stats/RetailStats_FilterPanel.package.min",
   "resources/Retail_stats/RetailStats_SaleTreeList.package.min",
