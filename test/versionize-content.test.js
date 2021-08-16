@@ -224,7 +224,7 @@ describe('versionize-content', () => {
       };
 
       // проверим, чтобы игнорировался cdn для js
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal(cdnSource);
       result.errors.should.equal(false);
 
@@ -239,7 +239,7 @@ describe('versionize-content', () => {
       };
 
       // проверим, чтобы игнорировался cdn для шрифтов
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal(cdnSource);
       result.errors.should.equal(false);
       false.should.equal(!!currentFile.versioned);
@@ -250,7 +250,7 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.errors.should.equal(false);
       result.newText.should.equal(versionedMinLink);
 
@@ -259,7 +259,7 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal('src="{{item.get(image) || resourceRoot + \'SBIS3.CONTROLS/themes/online/img/defaultItem.png?x_module=%{MODULE_VERSION_STUB=SBIS3.CONTROLS}\'}}">');
       result.errors.should.equal(false);
 
@@ -269,7 +269,7 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal('href="%{RESOURCE_ROOT}PrestoOrder/resources/font/Presto-icons.min.css?x_module=%{MODULE_VERSION_STUB=PrestoOrder}"');
       result.errors.should.equal(true);
 
@@ -279,7 +279,7 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, wscoreModuleInfo, true);
+      result = versionizeContent.versionizeTemplates(currentFile, wscoreModuleInfo);
       result.newText.should.equal('href="%{RESOURCE_ROOT}PrestoOrder/resources/font/Presto-icons.min.css?x_module=%{MODULE_VERSION_STUB=PrestoOrder}"');
       result.errors.should.equal(false);
 
@@ -288,7 +288,7 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal('<link rel="stylesheet" href="demo-files/demo.min.css?x_module=%{MODULE_VERSION_STUB=MyModule}">');
       result.errors.should.equal(false);
 
@@ -300,7 +300,7 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal('src="/materials/resources/SBIS3.CONTROLS/themes/online/online.min.css?x_module=%{MODULE_VERSION_STUB=SBIS3.CONTROLS}"');
       result.errors.should.equal(false);
       currentFile.versioned.should.equal(true);
@@ -310,7 +310,7 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal('src="/previewer/95/resources/Applications/Card/images/default-image.png?x_module=%{MODULE_VERSION_STUB=Applications}"');
       result.errors.should.equal(true);
       currentFile.versioned.should.equal(true);
@@ -320,7 +320,7 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal('src="/previewer/resources/Applications/Card/images/default-image.png?x_module=%{MODULE_VERSION_STUB=Applications}"');
       result.errors.should.equal(true);
       currentFile.versioned.should.equal(true);
@@ -330,7 +330,7 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal('src="../build/pdf.min.js?x_module=%{MODULE_VERSION_STUB=MyModule}"');
       result.errors.should.equal(false);
       currentFile.versioned.should.equal(true);
@@ -341,7 +341,7 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal(versionedMinLink);
       result.errors.should.equal(false);
       currentFile.versioned.should.equal(true);
@@ -352,7 +352,7 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal('<link href="{{resourceRoot}}Controls-default-theme/fonts/cbuc-icons/cbuc-icons.woff2?x_module=%{MODULE_VERSION_STUB=Controls-default-theme}"/>');
       result.errors.should.equal(true);
       currentFile.versioned.should.equal(true);
@@ -362,7 +362,7 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal('<link href="{{=it.resourceRoot}}WS3Page/Templates/css/graytheme.min.css?x_module=%{MODULE_VERSION_STUB=WS3Page}"/>');
       result.errors.should.equal(false);
       currentFile.versioned.should.equal(true);
@@ -372,7 +372,7 @@ describe('versionize-content', () => {
       currentFile = {
          contents: testSpanFromTemplate
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
       result.newText.should.equal(testSpanFromTemplate);
       result.errors.should.equal(false);
       false.should.equal(!!currentFile.versioned);
@@ -383,14 +383,14 @@ describe('versionize-content', () => {
          base,
          path: filePath
       };
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, true, 'test-version');
-      result.newText.should.equal('src="/materials/resources/contents.min.js?x_module=%{BUILDER_VERSION_STUB}&x_app=%{PRODUCT_NAME}"');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
+      result.newText.should.equal('src="/materials/resources/contents.min.js"');
       result.errors.should.equal(false);
       currentFile.versioned.should.equal(true);
 
       // there should be a strict build number to be written into "contents" url for single-service application
-      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo, false, 'test-version');
-      result.newText.should.equal('src="/materials/resources/contents.min.js?x_module=test-version"');
+      result = versionizeContent.versionizeTemplates(currentFile, currentModuleInfo);
+      result.newText.should.equal('src="/materials/resources/contents.min.js"');
       result.errors.should.equal(false);
       currentFile.versioned.should.equal(true);
    });
@@ -463,7 +463,7 @@ describe('versionize-content', () => {
          templateSourceContent.includes('bundles.js"') &&
          templateSourceContent.includes('src="{{item.get(image) ? item.get(image) : \'/resources/SBIS3.CONTROLS/themes/online/img/defaultFolder.png\'}}" />');
       templateSourceNotChanged.should.equal(true);
-      const templateCompiledChanged = templateCompiledContent.includes('contents.min.js?x_module=%{BUILDER_VERSION_STUB}&x_app=%{PRODUCT_NAME}') &&
+      const templateCompiledChanged = templateCompiledContent.includes('contents.min.js') &&
          templateCompiledContent.includes('config.min.js?x_module=%{MODULE_VERSION_STUB=WS.Core}"') &&
          templateCompiledContent.includes('"/cdn/requirejs/2.3.5-p3/require-min.js"');
       templateCompiledChanged.should.equal(true);

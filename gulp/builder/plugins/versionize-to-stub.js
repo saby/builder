@@ -43,12 +43,7 @@ module.exports = function declarePlugin(taskParameters, moduleInfo) {
          if (file.extname === '.css') {
             result = versionizeStyles(file, moduleInfo);
          } else if (['.html', '.tmpl', '.xhtml', '.wml'].includes(file.extname)) {
-            result = versionizeTemplates(
-               file,
-               moduleInfo,
-               taskParameters.config.multiService,
-               taskParameters.config.version
-            );
+            result = versionizeTemplates(file, moduleInfo);
          }
 
          file.contents = Buffer.from(result.newText);
