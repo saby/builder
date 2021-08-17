@@ -9,8 +9,11 @@
       "InterfaceModule1/amdModule",
       "InterfaceModule1/library",
       "css!InterfaceModule1-default-theme/themedStyle",
+      "css!InterfaceModule1-default-theme/themedStyle_ie",
       "css!InterfaceModule1/amdModule",
-      "css!InterfaceModule1/moduleStyle"
+      "css!InterfaceModule1/amdModule_ie",
+      "css!InterfaceModule1/moduleStyle",
+      "css!InterfaceModule1/moduleStyle_ie"
     ],
     "config": "/InterfaceModule1/packages/extendable-bundle.package.json:superbundle-for-builder-tests.package.js"
   }
