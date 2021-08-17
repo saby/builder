@@ -21,6 +21,7 @@ const gulpBuildHtmlTmpl = require('../plugins/build-html-tmpl'),
    addMissingThemes = require('../../common/plugins/add-missing-themes'),
    changedInPlace = require('../../common/plugins/changed-in-place'),
    addComponentInfo = require('../plugins/add-component-info'),
+   addIEVersionForCss = require('../plugins/add-ie-version-for-css'),
    buildStaticHtml = require('../plugins/build-static-html'),
    createRoutesInfoJson = require('../plugins/create-routes-info-json'),
    createNavigationModulesJson = require('../plugins/create-navigation-modules-json'),
@@ -162,6 +163,7 @@ function generateTaskForBuildSingleModule(taskParameters, moduleInfo, modulesMap
                })
             )
             .pipe(addMissingThemes(taskParameters, moduleInfo))
+            .pipe(addIEVersionForCss(moduleInfo))
             .pipe(changedInPlace(taskParameters, moduleInfo))
             .pipe(gulpIf(!!moduleInfo.typescript, compileEsAndTs(taskParameters, moduleInfo)))
             .pipe(gulpIf(!!moduleInfo.icons, processSvg(taskParameters, moduleInfo)))
