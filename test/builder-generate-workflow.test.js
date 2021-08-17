@@ -1952,7 +1952,8 @@ describe('gulp/builder/generate-workflow.js', () => {
             'ExternalInterfaceModule/_private/module2': 'resources/Modul/TestBSort/test-projectMDeps.package.min.js',
             'ExternalInterfaceModule/amdModule': 'resources/Modul/TestBSort/test-projectMDeps.package.min.js',
             'ExternalInterfaceModule/library': 'resources/Modul/TestBSort/test-projectMDeps.package.min.js',
-            'css!ExternalInterfaceModule/moduleStyle': 'resources/Modul/TestBSort/test-projectMDeps.package.min.css'
+            'css!ExternalInterfaceModule/moduleStyle': 'resources/Modul/TestBSort/test-projectMDeps.package.min.css',
+            'css!ExternalInterfaceModule/moduleStyle_ie': 'resources/Modul/TestBSort/test-projectMDeps.package.min.css'
          });
 
          // build result must have correct meta about extendable bundles
@@ -1968,8 +1969,11 @@ describe('gulp/builder/generate-workflow.js', () => {
                   'InterfaceModule1/amdModule',
                   'InterfaceModule1/library',
                   'css!InterfaceModule1-default-theme/themedStyle',
+                  'css!InterfaceModule1-default-theme/themedStyle_ie',
                   'css!InterfaceModule1/amdModule',
-                  'css!InterfaceModule1/moduleStyle'
+                  'css!InterfaceModule1/amdModule_ie',
+                  'css!InterfaceModule1/moduleStyle',
+                  'css!InterfaceModule1/moduleStyle_ie'
                ],
                config: '/InterfaceModule1/packages/extendable-bundle.package.json:superbundle-for-builder-tests.package.js'
             }
