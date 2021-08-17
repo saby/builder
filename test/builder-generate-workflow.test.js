@@ -1637,7 +1637,9 @@ describe('gulp/builder/generate-workflow.js', () => {
       versionedModules.should.have.members([
          'Module/_private/TimeTester.min.tmpl',
          'Module/browser.min.css',
+         'Module/browser_ie.min.css',
          'Module/browser-with-real-cdn.min.css',
+         'Module/browser-with-real-cdn_ie.min.css',
          'Module/demo.html',
          'Module/someLibrary.min.js'
       ]);
@@ -1645,7 +1647,9 @@ describe('gulp/builder/generate-workflow.js', () => {
          'Module/_private/TimeTester.min.tmpl',
          'Module/_private/TimeTester.tmpl',
          'Module/browser.min.css',
+         'Module/browser_ie.min.css',
          'Module/browser.css',
+         'Module/browser_ie.css',
          'Module/someLibrary.js',
          'Module/someLibrary.min.js'
       ]);
@@ -1658,7 +1662,9 @@ describe('gulp/builder/generate-workflow.js', () => {
       versionedModules.should.have.members([
          'Module/_private/TimeTester.min.tmpl',
          'Module/browser.min.css',
+         'Module/browser_ie.min.css',
          'Module/browser-with-real-cdn.min.css',
+         'Module/browser-with-real-cdn_ie.min.css',
          'Module/demo.html',
          'Module/someLibrary.min.js'
       ]);
@@ -1666,7 +1672,9 @@ describe('gulp/builder/generate-workflow.js', () => {
          'Module/_private/TimeTester.min.tmpl',
          'Module/_private/TimeTester.tmpl',
          'Module/browser.min.css',
+         'Module/browser_ie.min.css',
          'Module/browser.css',
+         'Module/browser_ie.css',
          'Module/someLibrary.js',
          'Module/someLibrary.min.js'
       ]);
@@ -2283,6 +2291,7 @@ describe('gulp/builder/generate-workflow.js', () => {
             'ExternalInterfaceModule/library',
             'Modul/private',
             'css!ExternalInterfaceModule/moduleStyle',
+            'css!ExternalInterfaceModule/moduleStyle_ie',
             'css!Modul/Stable',
             'html!Modul/Page'
          ]);
@@ -2298,7 +2307,9 @@ describe('gulp/builder/generate-workflow.js', () => {
             'InterfaceModule1/amdModule': 'resources/Modul/TestBSort/test-superbundle.package.min.js',
             'InterfaceModule1/library': 'resources/Modul/TestBSort/test-superbundle.package.min.js',
             'css!InterfaceModule1/moduleStyle': 'resources/Modul/TestBSort/test-superbundle.package.min.css',
+            'css!InterfaceModule1/moduleStyle_ie': 'resources/Modul/TestBSort/test-superbundle.package.min.css',
             'css!InterfaceModule1/amdModule': 'resources/Modul/TestBSort/test-superbundle.package.min.css',
+            'css!InterfaceModule1/amdModule_ie': 'resources/Modul/TestBSort/test-superbundle.package.min.css',
             'Modul/private': 'resources/Modul/test-brotli.package.min.js',
             'css!Modul/Stable': 'resources/Modul/test-brotli.package.min.css',
             'html!Modul/Page': 'resources/Modul/test-brotli.package.min.js'
@@ -2355,7 +2366,9 @@ describe('gulp/builder/generate-workflow.js', () => {
             'amdModule.js.map',
             'amdModule.min.js',
             'amdModule.css',
+            'amdModule_ie.css',
             'amdModule.min.css',
+            'amdModule_ie.min.css',
             'extend.package.json',
             'library.modulepack.js',
             'library.modulepack.js.map',
@@ -2364,7 +2377,9 @@ describe('gulp/builder/generate-workflow.js', () => {
             'library.min.js',
             'module-dependencies.json',
             'moduleStyle.css',
+            'moduleStyle_ie.css',
             'moduleStyle.min.css',
+            'moduleStyle_ie.min.css',
             'contents.json',
             'contents.json.js',
             'contents.json.min.js',
@@ -2402,7 +2417,9 @@ describe('gulp/builder/generate-workflow.js', () => {
             'InterfaceModule1/library': 'resources/Modul/TestBSort/test-superbundle.package.min.js',
             'Modul/private': 'resources/Modul/test-brotli.package.min.js',
             'css!InterfaceModule1/moduleStyle': 'resources/Modul/TestBSort/test-superbundle.package.min.css',
+            'css!InterfaceModule1/moduleStyle_ie': 'resources/Modul/TestBSort/test-superbundle.package.min.css',
             'css!InterfaceModule1/amdModule': 'resources/Modul/TestBSort/test-superbundle.package.min.css',
+            'css!InterfaceModule1/amdModule_ie': 'resources/Modul/TestBSort/test-superbundle.package.min.css',
             'css!Modul/Stable': 'resources/Modul/test-brotli.package.min.css',
             'html!Modul/Page': 'resources/Modul/test-brotli.package.min.js'
          });
