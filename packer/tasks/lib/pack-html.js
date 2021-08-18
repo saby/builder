@@ -129,7 +129,8 @@ async function getJsAndCssPackage(
    themeName,
    staticHtmlName,
    resourceRoot,
-   relativePackagePath
+   relativePackagePath,
+   packIECss
 ) {
    const isOfflineClient = await checkItIsOfflineClient(applicationRoot);
    const jsForPack = orderQueue.js.filter(node => !!node.amd);
@@ -147,6 +148,9 @@ async function getJsAndCssPackage(
          return true;
       })
       .map(function onlyPath(module) {
+         if (packIECss) {
+            return module.fullPath.replace(/(\.min)?.css$/, '_ie$1.css');
+         }
          return module.fullPath;
       });
 
@@ -197,7 +201,8 @@ function packInOrder(
    staticHtmlName,
    availableLanguage,
    resourceRoot,
-   relativePackagePath
+   relativePackagePath,
+   packIECss
 ) {
    let orderQueue;
 
@@ -205,7 +210,7 @@ function packInOrder(
    orderQueue = commonPackage.prepareOrderQueue(dg, orderQueue, root);
    orderQueue = commonPackage.prepareResultQueue(orderQueue, root, availableLanguage);
 
-   return getJsAndCssPackage(orderQueue, root, themeName, staticHtmlName, resourceRoot, relativePackagePath);
+   return getJsAndCssPackage(orderQueue, root, themeName, staticHtmlName, resourceRoot, relativePackagePath, packIECss);
 }
 
 function insertAllDependenciesToDocument(filesToPack, type, insertAfter) {
@@ -450,7 +455,8 @@ async function packageSingleHtml(
       // internally it uses path.dirname so we need to supply a filename
       helpers.prettifyPath(
          path.join(packageHome, 'someFakeName.css')
-      )
+      ),
+      true
    );
 
    // Запишем в статическую html зависимости от ВСЕХ пакетов(основные js и css пакеты +
