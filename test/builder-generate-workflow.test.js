@@ -227,9 +227,7 @@ describe('gulp/builder/generate-workflow.js', () => {
 
          const moduleStyleResult = await fs.readFile(path.join(outputFolder, 'Module', 'Stable.css'), 'utf8');
          moduleStyleResult.should.equal('.test-selector {\n' +
-            '  test-mixin: \'mixin for IE there\';\n' +
             '  test-mixin: var(--test-mixin);\n' +
-            '  test-var: \'variable for IE\';\n' +
             '  test-var: var(--test-var);\n' +
             '  display: -ms-grid;\n' +
             '  display: grid;\n' +
@@ -309,9 +307,7 @@ describe('gulp/builder/generate-workflow.js', () => {
 
       const moduleStyleContent = await fs.readFile(path.join(outputFolder, 'Module', 'Stable.css'), 'utf8');
       moduleStyleContent.should.equal('.test-selector {\n' +
-         '  test-mixin: \'updated mixin for IE there\';\n' +
          '  test-mixin: var(--test-mixin);\n' +
-         '  test-var: \'variable for IE\';\n' +
          '  test-var: var(--test-var);\n' +
          '  display: -ms-grid;\n' +
          '  display: grid;\n' +
@@ -605,9 +601,7 @@ describe('gulp/builder/generate-workflow.js', () => {
 
       // autoprefixer enabled by default, so css result must have all needed prefixes
       stableCss.replace(/\n$/, '').should.equal('.test-selector {\n' +
-         '  test-mixin: undefined;\n' +
          '  test-mixin: var(--test-mixin);\n' +
-         '  test-var: undefined;\n' +
          '  test-var: var(--test-var);\n' +
          '  display: -ms-grid;\n' +
          '  display: grid;\n' +
