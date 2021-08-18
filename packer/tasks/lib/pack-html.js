@@ -149,7 +149,7 @@ async function getJsAndCssPackage(
       })
       .map(function onlyPath(module) {
          if (packIECss) {
-            return module.fullPath.replace(/(\.min)?.css/, '_ie$1.css');
+            return module.fullPath.replace(/(\.min)?.css$/, '_ie$1.css');
          }
          return module.fullPath;
       });
