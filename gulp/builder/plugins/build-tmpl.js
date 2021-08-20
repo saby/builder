@@ -210,6 +210,11 @@ module.exports = function declarePlugin(taskParameters, moduleInfo) {
             if (newText.startsWith('define')) {
                result.text = newText;
             }
+
+            // gulp.src reader removes BOM from file contents, so we need to do
+            // the same thing
+            result.text = result.text.replace(/^\uFEFF/, '');
+
             moduleInfo.cache.storeBuildedMarkup(relativeFilePath, result);
             newText = result.text;
 
