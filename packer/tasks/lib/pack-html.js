@@ -48,13 +48,19 @@ async function nativePackFiles(filesToPack, base, themeName) {
    if (!filesToPack || !filesToPack.length) {
       return '';
    }
-   const results = await pMap(
+
+   const contents = {};
+
+   await pMap(
       filesToPack,
-      module => commonPackage.getLoader(module.plugin)(module, base, themeName),
+      (module) => {
+         contents[module.fullPath] = commonPackage.getLoader(module.plugin)(module, base, themeName);
+      },
       { concurrency: 10 }
    );
-   return results.reduce(function concat(res, modContent) {
-      return res + (res ? '\n' : '') + modContent;
+
+   return helpers.descendingSort(Object.keys(contents)).reduce(function concat(res, nameContent) {
+      return res + (res ? '\n' : '') + contents[nameContent];
    }, '');
 }
 
