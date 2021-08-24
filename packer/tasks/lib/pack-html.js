@@ -145,7 +145,10 @@ async function getJsAndCssPackage(
             // TODO Косытыль чтобы в пакет не попадали css контролов. Необходимо только для PRESTO И CARRY.
             return !module.fullName.startsWith('css!SBIS3.CONTROLS/') && !module.fullName.startsWith('css!Controls/');
          }
-         return true;
+
+         // TODO удалить костыль, когда будет решена проблема со сборкой патчей
+         // https://online.sbis.ru/opendoc.html?guid=0db4ee33-7e5b-4dba-8281-d67a0bb3d66c
+         return !module.fullName.startsWith('css!Hint/');
       })
       .map(function onlyPath(module) {
          if (packIECss) {
