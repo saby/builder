@@ -53,8 +53,8 @@ async function nativePackFiles(filesToPack, base, themeName) {
 
    await pMap(
       filesToPack,
-      (module) => {
-         contents[module.fullPath] = commonPackage.getLoader(module.plugin)(module, base, themeName);
+      async(module) => {
+         contents[module.fullPath] = await commonPackage.getLoader(module.plugin)(module, base, themeName);
       },
       { concurrency: 10 }
    );
