@@ -111,7 +111,10 @@ function generateFakeModules(filesToPack, themeName, staticHtmlName) {
          ) {
             return !module.fullName.includes('SBIS3.CONTROLS');
          }
-         return true;
+
+         // TODO удалить костыль, когда будет решена проблема со сборкой патчей
+         // https://online.sbis.ru/opendoc.html?guid=0db4ee33-7e5b-4dba-8281-d67a0bb3d66c
+         return !module.fullName.startsWith('css!Hint/');
       })
       .map(module => `define('${module.fullName}', '');`)
       .join('\n')}\n})();`;
