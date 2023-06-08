@@ -1,0 +1,7 @@
+test/fixture/*
+test/fixtureWS/*
+test/workspace/*
+dest/*
+coverage/*
+install/install.js
+install/post-process-builder.js
