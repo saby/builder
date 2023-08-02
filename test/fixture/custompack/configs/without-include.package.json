@@ -1,0 +1,8 @@
+[
+  {
+    "modules": [
+      "InterfaceModule1/*"
+    ],
+    "output": "testCustomPack1.package.js"
+  }
+]

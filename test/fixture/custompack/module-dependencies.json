@@ -1,0 +1,41 @@
+{
+  "links": {
+    "InterfaceModule1/amdModule": [
+      "css!InterfaceModule1/moduleStyle"
+    ],
+    "InterfaceModule2/amdModule": [
+      "css!InterfaceModule2/moduleStyle"
+    ],
+    "InterfaceModule3/amdModule": [
+      "css!InterfaceModule3/amdModule"
+    ],
+    "InterfaceModule3/amdAnotherModule": []
+  },
+  "nodes": {
+    "InterfaceModule1/amdModule": {
+      "amd": true,
+      "path": "InterfaceModule1\\amdModule.js"
+    },
+    "css!InterfaceModule1/moduleStyle": {
+      "path": "InterfaceModule1\\moduleStyle.css"
+    },
+    "InterfaceModule2/amdModule": {
+      "amd": true,
+      "path": "InterfaceModule2\\amdModule.js"
+    },
+    "css!InterfaceModule2/moduleStyle": {
+      "path": "InterfaceModule2\\moduleStyle.css"
+    },
+    "InterfaceModule3/amdModule": {
+      "amd": true,
+      "path": "InterfaceModule3\\amdModule.js"
+    },
+    "css!InterfaceModule3/amdModule": {
+      "path": "InterfaceModule3\\amdModule.min.css"
+    },
+    "InterfaceModule3/amdAnotherModule": {
+      "amd": true,
+      "path": "InterfaceModule3/amdAnotherModule.js"
+    }
+  }
+}
