@@ -1,0 +1,10 @@
+{
+  "include": [
+    "InterfaceModule3/amdModule",
+    "InterfaceModule3/*"
+  ],
+  "exclude": [
+    "css!InterfaceModule3/amdModule"
+  ],
+  "output": "exclude-css.package.js"
+}
