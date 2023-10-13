@@ -1,0 +1,35 @@
+[{
+  "include": [
+    "InterfaceModule1/*",
+    "InterfaceModule1-default-theme/*"
+  ],
+  "exclude": [
+    "InterfaceModule1/_private/*"
+  ],
+  "output": "interfacemodule1.package.js"
+}, {
+  "include": [
+    "InterfaceModule1/*"
+  ],
+  "exclude": [
+    "InterfaceModule1/_private/*"
+  ],
+  "output": "interfacemodule1-second.package.js"
+}, {
+  "include": [
+    "InterfaceModule1/*"
+  ],
+  "exclude": [
+    "css!InterfaceModule1/*"
+  ],
+  "output": "interfacemodule1-styles-in-js.package.js"
+}, {
+  "include": [
+    "InterfaceModule1/*"
+  ],
+  "optional": true,
+  "exclude": [
+    "css!InterfaceModule1/*"
+  ],
+  "output": "interfacemodule1-styles-in-js-optional.package.js"
+}]
