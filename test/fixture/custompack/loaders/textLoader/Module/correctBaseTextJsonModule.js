@@ -1,0 +1,1 @@
+define("Module/jsonModule.json", "{\n  \"test1\": \"test1Data\",\n  \"test2\": [\"1\", \"2\", \"3\"],\n  \"test3\": {\n    \"obj1\": \"obj1\",\n    \"obj2\": \"obj2\"\n  }\n}");
