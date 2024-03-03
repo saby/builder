@@ -1,0 +1,15 @@
+[{
+  "include": [
+    "InterfaceModule1/*",
+    "InterfaceModule2/*"
+  ],
+  "path": "configs/intersects.package.json",
+  "output": "interface-module-1.package.js"
+}, {
+  "include": [
+    "InterfaceModule1/*",
+    "InterfaceModule2/*"
+  ],
+  "path": "configs/intersects.package.json",
+  "output": "interface-module-2.package.js"
+}]

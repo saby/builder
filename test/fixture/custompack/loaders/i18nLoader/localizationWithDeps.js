@@ -1,0 +1,1 @@
+define('Module_localization',["Core/i18n","Module/SomeModule"],function(i18n){var langDep=[].filter(function(dep){var lang=dep.match(/lang\/([a-z]{2}-[A-Z]{2})/);if(lang && lang[1] == i18n.getLang()){return dep;}});if(langDep){global.requirejs(langDep)}return i18n.rk.bind(i18n);});
