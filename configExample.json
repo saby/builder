@@ -1,0 +1,1134 @@
+{
+  "logs": "/path/to/project/logs/",
+  "output": "/path/to/project/application/",
+  "cache": "/path/to/project/cache/",
+  "typescript": true,
+  "contents": true,
+  "less": true,
+  "minimize": true,
+  "wml": true,
+  "customPack": true,
+  "compress": true,
+  "modules": [
+    {
+      "id": "a857d050-c754-4d39-90ec-fca5e2ddf022",
+      "name": "Router",
+      "path": "/path/to/repo/saby_router/Router",
+      "required": true,
+      "depends": [
+        "Vdom",
+        "View",
+        "Application",
+        "Env",
+        "Types",
+        "UI"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "0641abed-e0fb-4f42-990c-4c24bdbd7555",
+      "name": "DemoStand",
+      "path": "/path/to/project/DemoStand",
+      "depends": [
+        "Controls",
+        "ItemTemplates",
+        "RequireJsLoader",
+        "Controls-default-theme",
+        "Router",
+        "File",
+        "WasabyLoader"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "6ae4f1d6-9ecf-4805-a98c-65e47906eedd",
+      "name": "Tailwind",
+      "path": "/path/to/repo/saby_tailwindcss/Tailwind",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "0df0fce3-53ba-47f8-987d-edf1fd078295",
+      "name": "WS.Core",
+      "path": "/path/to/repo/sbis_ws/WS.Core",
+      "required": true,
+      "depends": [
+        "RequireJsLoader",
+        "WasabyLoader",
+        "Types",
+        "Env",
+        "View",
+        "Vdom",
+        "UI",
+        "Browser",
+        "Types",
+        "Env",
+        "View",
+        "Vdom",
+        "UI",
+        "Browser"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "0f5d26db-dd61-4957-9375-8861ad66f219",
+      "name": "Vdom",
+      "path": "/path/to/repo/sbis_ws/Vdom",
+      "required": true,
+      "depends": [
+        "Env",
+        "UI"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "636177e5-4d75-44fa-9173-977dc90ff111",
+      "name": "Env",
+      "path": "/path/to/repo/sbis_rmi/src/client/Env",
+      "required": true,
+      "depends": [
+        "WS.Core",
+        "Application"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "4220f331-8217-437b-810c-8c4479323a27",
+      "name": "EnvConfig",
+      "path": "/path/to/repo/sbis_rmi/src/client/EnvConfig",
+      "required": true,
+      "depends": [
+        "WS.Core",
+        "Env",
+        "Browser",
+        "Types",
+        "ParametersWebAPI"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "74e20c2f-4545-4210-9148-2d05b3cd12fc",
+      "name": "ParametersLocalAPI",
+      "path": "/path/to/repo/sbis_rmi/src/client/ParametersLocalAPI",
+      "required": false,
+      "featuresProvided": [
+        "ParametersScope"
+      ],
+      "depends": [
+        "ParametersWebAPI"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "e4bbd0f2-f7ce-404e-88b2-5130d105b770",
+      "name": "ParametersWebAPI",
+      "path": "/path/to/repo/sbis_rmi/src/client/ParametersWebAPI",
+      "required": false,
+      "featuresRequired": [
+        "ParametersScope"
+      ],
+      "depends": [
+        "Env",
+        "Browser",
+        "Types"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "63e1a7e5-4d75-42fa-91a3-977dc90ff1e1",
+      "name": "SbisEnv",
+      "path": "/path/to/repo/sbis_rmi/src/client/SbisEnv",
+      "required": true,
+      "depends": [
+        "WS.Core",
+        "Application"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "323fd54f-1fab-42a6-8aea-6726d6392d53",
+      "name": "Application",
+      "path": "/path/to/repo/saby_wasaby-app/src/Application",
+      "required": true,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "686f183d-0bcc-4732-b4e4-6016c2a67a0f",
+      "name": "Types",
+      "path": "/path/to/repo/saby_Types/Types",
+      "required": true,
+      "depends": [
+        "Env",
+        "I18n",
+        "WS.Core",
+        "WasabyLoader"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "832cda0a-e19c-4ffc-a1d1-47edbb6b7501",
+      "name": "I18n",
+      "path": "/path/to/repo/saby_i18n/I18n",
+      "required": true,
+      "depends": [
+        "Env"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "7e8aabad-d60f-4c48-aa74-f29d78fd8be2",
+      "name": "RequireJsLoader",
+      "path": "/path/to/repo/saby_wasaby-requirejs-loader/RequireJsLoader",
+      "required": true,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "37e402f1-2fb0-4b73-81c5-113cf94dbf1c",
+      "name": "WasabyLoader",
+      "path": "/path/to/repo/saby_wasaby-requirejs-loader/WasabyLoader",
+      "required": true,
+      "depends": [
+        "RequireJsLoader"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "656177e2-4d75-42fa-9173-977dc90ff121",
+      "name": "Browser",
+      "path": "/path/to/repo/sbis_rmi/src/client/Browser",
+      "required": true,
+      "depends": [
+        "SbisEnv",
+        "Types",
+        "I18n",
+        "TransportCore",
+        "BrowserAPI",
+        "SAP",
+        "SAPService"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "c0ca5014-5376-4f60-bbf3-af1dfcb8b999",
+      "name": "TransportCore",
+      "path": "/path/to/repo/sbis_rmi/src/client/TransportCore",
+      "required": true,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "a5e32491-7b02-45b1-b65d-53e9723ec0cd",
+      "name": "React",
+      "path": "/path/to/repo/saby_react/React",
+      "required": true,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "10efeac7-0f02-4c73-9474-0d1d0db077b6",
+      "name": "View",
+      "path": "/path/to/repo/sbis_ws/View",
+      "required": true,
+      "depends": [
+        "WS.Core",
+        "UI"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "f27abe12-19df-4c9f-b886-634bd20a0011",
+      "name": "UI",
+      "path": "/path/to/repo/saby_ui/UI",
+      "required": true,
+      "depends": [
+        "WS.Core",
+        "Env",
+        "Application",
+        "I18n",
+        "Types",
+        "WasabyLoader",
+        "Compiler",
+        "React",
+        "UICore",
+        "UICommon",
+        "SbisEnvUI",
+        "SbisEnvUI"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "1456f36f-76ef-4323-a2dd-a22bc91e7209",
+      "name": "Compiler",
+      "path": "/path/to/repo/saby_ui/Compiler",
+      "required": true,
+      "depends": [
+        "Application",
+        "WS.Core",
+        "Env",
+        "UICommon"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "0f15ac6b-86b2-4265-9da1-05eac93ebdf6",
+      "name": "UICommon",
+      "path": "/path/to/repo/saby_ui/UICommon",
+      "required": true,
+      "depends": [
+        "WS.Core",
+        "Env",
+        "Application",
+        "Types",
+        "WasabyLoader",
+        "RequireJsLoader",
+        "I18n"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "548e4ee9-10cd-4227-9e3c-0811958f979c",
+      "name": "UICore",
+      "path": "/path/to/repo/saby_ui/UIReact/UICore",
+      "required": true,
+      "depends": [
+        "WS.Core",
+        "Env",
+        "Application",
+        "Types",
+        "React",
+        "UICommon"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "fb94fd38-9965-46b6-9820-568d32c5f78e",
+      "name": "PresentationService",
+      "path": "/path/to/repo/sbis_core/client/PresentationService",
+      "depends": [
+        "WS.Core",
+        "RequireJsLoader",
+        "Types",
+        "Env",
+        "Router",
+        "UI",
+        "View",
+        "SbisUI",
+        "SbisEnv",
+        "I18n"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "738f2c01-b250-4275-b0a7-ddc7044b4129",
+      "name": "PSWarmUp",
+      "path": "/path/to/repo/sbis_core/client/PSWarmUp",
+      "depends": [
+        "WS.Core"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "f515eba2-dad5-4cc3-bef8-2ff45bd2a880",
+      "name": "ThemesModule",
+      "path": "/path/to/repo/saby_ui/ThemesModule",
+      "depends": ["Controls-default-theme"],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "16b7a546-95bc-437c-af6a-77f8bbf2a724",
+      "name": "WmlBuilder",
+      "path": "/path/to/repo/saby_ui/WmlBuilder",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "20900143-d257-48ef-b5db-0ccc8141fe4b",
+      "name": "VirtualTreeMarkup",
+      "path": "/path/to/repo/saby_ui/VirtualTreeMarkup",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "24fe698c-de89-4825-b2ff-2c5d264543b1",
+      "name": "VirtualDom",
+      "path": "/path/to/repo/saby_ui/VirtualDom",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "722575bb-20cd-4218-9093-245add574a8e",
+      "name": "TextMarkup",
+      "path": "/path/to/repo/saby_ui/TextMarkup",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "a10cb1cb-b23d-4ef6-a757-4f7382e0e8d1",
+      "name": "SbisEnvUI",
+      "path": "/path/to/repo/sbis_engine/client/SbisEnvUI",
+      "required": false,
+      "depends": [
+        "WS.Core",
+        "Application",
+        "Env",
+        "Browser",
+        "Controls-default-theme",
+        "TransportCore",
+        "UI",
+        "Controls",
+        "Router",
+        "I18n"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "e76c9481-9d6f-49a4-b71f-b567061e6e38",
+      "name": "Markup",
+      "path": "/path/to/repo/saby_ui/Markup",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "af50caf5-f84b-4b81-a19c-6f6618372dbd",
+      "name": "Controls-default-theme",
+      "path": "/path/to/project/Controls-default-theme",
+      "required": true,
+      "depends": [
+        "Controls"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "825f3706-0d79-4982-aa00-b07e4c471288",
+      "name": "Controls-icons",
+      "path": "/path/to/project/Controls-icons",
+      "required": true,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "f6fdf353-3ab3-4dbb-8671-01c2b418bf0a",
+      "name": "Controls",
+      "path": "/path/to/project/Controls",
+      "required": true,
+      "depends": [
+        "Types",
+        "Application",
+        "SbisEnv",
+        "WS.Core",
+        "Env",
+        "EnvConfig",
+        "Browser",
+        "View",
+        "Vdom",
+        "UI",
+        "I18n",
+        "WasabyLoader",
+        "ParametersWebAPI",
+        "Tailwind"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "658445b8-42ed-4c6a-b649-c6ee7634ed66",
+      "name": "SbisUI",
+      "path": "/path/to/repo/sbis_rmi/src/client/SbisUI",
+      "required": false,
+      "depends": [
+        "WS.Core",
+        "Application",
+        "Env",
+        "Browser",
+        "TransportCore",
+        "UI",
+        "Router"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "52b03011-174b-4d8c-a8b9-dfef44782fd8",
+      "name": "BrowserAPI",
+      "path": "/path/to/repo/sbis_rmi/src/client/BrowserAPI",
+      "required": true,
+      "depends": [
+        "Types",
+        "Env"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "572910f4-ccf3-4543-aff7-81b0635cfd10",
+      "name": "Feature",
+      "path": "/path/to/repo/sbis_rmi/src/client/Feature",
+      "required": false,
+      "featuresRequired": [
+        "feature",
+        "featureSubscription"
+      ],
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "09f73929-c09d-47c2-801f-2dc0cd428ef6",
+      "name": "FeatureLocal",
+      "path": "/path/to/repo/sbis_rmi/src/client/FeatureLocal",
+      "required": false,
+      "featuresProvided": [
+        "feature",
+        "featureSubscription"
+      ],
+      "depends": [
+        "Feature"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "62bf645b-207a-4e83-b06d-41e8c51d3122",
+      "name": "ControlsUnit",
+      "path": "/path/to/project/tests/ControlsUnit",
+      "depends": [
+        "Controls",
+        "Controls-default-theme",
+        "SbisEnvUI"
+      ],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false,
+      "deprecatedXhtml": false,
+      "wml": false
+    },
+    {
+      "id": "0641abed-e0fb-4f42-990c-4c24bdbd7bd0",
+      "name": "Controls-demo",
+      "path": "/path/to/project/Controls-demo",
+      "depends": [
+        "Controls",
+        "ItemTemplates",
+        "WS.Core",
+        "RequireJsLoader",
+        "Controls-default-theme",
+        "Router",
+        "File",
+        "WasabyLoader",
+        "DemoStand",
+        "EnvConfig",
+        "ParametersWebAPI",
+        "ParametersLocalAPI"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "8be939ce-b823-4fe2-bd67-b89d12aee53d",
+      "name": "Controls-rating-demo",
+      "path": "/path/to/project/Controls-rating-demo",
+      "depends": [
+        "UI",
+        "Controls-rating"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "fd701948-fd2c-489b-a514-e958418882f4",
+      "name": "OnlineCDN",
+      "path": "/path/to/repo/online_cdn/OnlineCDN",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "d72b9b34-c22c-4484-90af-17b304be8b13",
+      "name": "AppIconCDN",
+      "path": "/path/to/repo/engine_cdn/AppIconCDN",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "76227a58-ce63-4d04-a27c-270e9ddcb719",
+      "name": "AppLogoCDN",
+      "path": "/path/to/repo/engine_cdn/AppLogoCDN",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "25610361-bd3f-4592-9859-63064063f5cb",
+      "name": "AppconfigurationCDN",
+      "path": "/path/to/repo/engine_cdn/AppconfigurationCDN",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "caa155a2-6947-44b1-a34d-b5f51fccfde8",
+      "name": "FabricJS",
+      "path": "/path/to/repo/engine_cdn/FabricJS",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "ee70b48f-dc64-45ae-984a-f9dbd85f51a0",
+      "name": "ImageEditorRC",
+      "path": "/path/to/repo/engine_cdn/ImageEditorRC",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "8df3cde2-0ecc-4839-9504-9be55343c09a",
+      "name": "SchemeEditorCDN",
+      "path": "/path/to/repo/engine_cdn/SchemeEditorCDN",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "23662ba2-2336-4355-8f59-5278fb9c0e53",
+      "name": "ThemePreviewCDN",
+      "path": "/path/to/repo/engine_cdn/ThemePreviewCDN",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "6e2c351e-fc7c-4bed-b718-e2eb28ac3d0e",
+      "name": "ViewSettingsCDN",
+      "path": "/path/to/repo/engine_cdn/ViewSettingsCDN",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "ed17c631-6d03-4913-8c5d-e2081c398774",
+      "name": "AceEditor",
+      "path": "/path/to/repo/sbis_cdn/AceEditor",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "869dca4c-0eb8-4e3c-b6c6-814897a32f55",
+      "name": "CommonHelpPerson",
+      "path": "/path/to/repo/sbis_cdn/CommonHelpPerson",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "f6bb0706-aff7-11ec-b909-0242ac120002",
+      "name": "DashboardIcons",
+      "path": "/path/to/repo/sbis_cdn/DashboardIcons",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "fdb882aa-243b-4556-8c55-599fff50bfed",
+      "name": "DeprecatedRC",
+      "path": "/path/to/repo/sbis_cdn/DeprecatedRC",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "7f861c85-8663-4bc0-bb8f-98e3fc9f2730",
+      "name": "HelpPersonCommon",
+      "path": "/path/to/repo/sbis_cdn/HelpPersonCommon",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "bb9d13a7-09e6-4301-a08d-4f53bca1e175",
+      "name": "HelpPersonDima",
+      "path": "/path/to/repo/sbis_cdn/HelpPersonDima",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "86fc58c8-3ba2-42b1-b0be-be009cec971d",
+      "name": "HelpPersonEugene",
+      "path": "/path/to/repo/sbis_cdn/HelpPersonEugene",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "6d519c9d-3a61-46a5-84c0-0e4e9929b2c7",
+      "name": "HelpPersonLara",
+      "path": "/path/to/repo/sbis_cdn/HelpPersonLara",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "28fc9195-cf95-4ad5-b3fa-4ce525f19005",
+      "name": "HelpPersonLeonid",
+      "path": "/path/to/repo/sbis_cdn/HelpPersonLeonid",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "ae996c06-d657-4fe6-b94a-764623144191",
+      "name": "HelpPersonNP",
+      "path": "/path/to/repo/sbis_cdn/HelpPersonNP",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "cfd4e95f-4e26-45e9-bc95-8b6ec1e9e303",
+      "name": "ModuleEditorIcons",
+      "path": "/path/to/repo/sbis_cdn/ModuleEditorIcons",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "43323ca3-f7ce-49e4-bf82-262468de512c",
+      "name": "PaperJS",
+      "path": "/path/to/repo/sbis_cdn/PaperJS",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "fc996c96-7f82-4560-b957-981d356a6a83",
+      "name": "SabyLogo",
+      "path": "/path/to/repo/sbis_cdn/SabyLogo",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "9c03d68e-4397-4ee9-a9c8-b03b5d0449f5",
+      "name": "SabyMan",
+      "path": "/path/to/repo/sbis_cdn/SabyMan",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "658a9cce-31ba-4cfe-ac20-eca0e01efc39",
+      "name": "AccordionFont",
+      "path": "/path/to/repo/saby_wasaby-cdn/AccordionFont",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "d29a0267-f17c-4f18-8f7e-0938b889397d",
+      "name": "AccordionFont-IE",
+      "path": "/path/to/repo/saby_wasaby-cdn/AccordionFont-IE",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "73faafcb-60e4-4566-a66a-f6ab906f06b7",
+      "name": "Boomerang",
+      "path": "/path/to/repo/saby_wasaby-cdn/Boomerang",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "d122870a-8b0a-44f9-aeeb-3986418dcf2a",
+      "name": "CbucIcons",
+      "path": "/path/to/repo/saby_wasaby-cdn/CbucIcons",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "938d0978-3fca-4c9d-9946-ba3ae46255a6",
+      "name": "CbucIcons-IE",
+      "path": "/path/to/repo/saby_wasaby-cdn/CbucIcons-IE",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "8755d022-a014-42a3-8023-fb90f98c0edc",
+      "name": "Codemirror",
+      "path": "/path/to/repo/saby_wasaby-cdn/Codemirror",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "8b84202c-52fd-4297-bc0e-a436ef83a24a",
+      "name": "EmojiFont",
+      "path": "/path/to/repo/saby_wasaby-cdn/EmojiFont",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "648d006e-7c63-4b16-9df9-8f0e2004aef7",
+      "name": "EmojiFont-IE",
+      "path": "/path/to/repo/saby_wasaby-cdn/EmojiFont-IE",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "51934c1b-4823-4844-8a05-7ee4dbaf0ed4",
+      "name": "HeightChecker",
+      "path": "/path/to/repo/saby_wasaby-cdn/HeightChecker",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "70fd296c-ed07-4fe5-9393-f8fdc9fc7df3",
+      "name": "Highcharts",
+      "path": "/path/to/repo/saby_wasaby-cdn/Highcharts",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "b127fcb9-f164-4ae5-a6a0-658ce340d648",
+      "name": "JQuery",
+      "path": "/path/to/repo/saby_wasaby-cdn/JQuery",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "3255ad33-c963-4899-abe5-4e35e00a18be",
+      "name": "LoaderIndicator",
+      "path": "/path/to/repo/saby_wasaby-cdn/LoaderIndicator",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "6b37add7-3560-46f0-b5d8-1566166ee3e8",
+      "name": "Maintenance",
+      "path": "/path/to/repo/saby_wasaby-cdn/Maintenance",
+      "required": false,
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "f161d674-43e5-4634-94d6-9e26430d08b3",
+      "name": "MaisonNeue",
+      "path": "/path/to/repo/saby_wasaby-cdn/MaisonNeue",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "03ff0329-0487-4b6a-954f-a4fa41af0d93",
+      "name": "MaisonNeue-IE",
+      "path": "/path/to/repo/saby_wasaby-cdn/MaisonNeue-IE",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "4f3efacd-c90d-42bd-8e84-3605d01cb9ee",
+      "name": "Punycode",
+      "path": "/path/to/repo/saby_wasaby-cdn/Punycode",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "60e42987-4d2c-4455-a254-97257c2314d6",
+      "name": "RequireJS",
+      "path": "/path/to/repo/saby_wasaby-cdn/RequireJS",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "cf6f5767-7fa3-4d2d-b360-9e56af200aea",
+      "name": "TensorFont",
+      "path": "/path/to/repo/saby_wasaby-cdn/TensorFont",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "60eab040-41dd-42ed-907d-1efa033282dd",
+      "name": "TensorFont-IE",
+      "path": "/path/to/repo/saby_wasaby-cdn/TensorFont-IE",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "058aec47-70de-4fd1-80b9-b67a7deff15a",
+      "name": "TensorInter",
+      "path": "/path/to/repo/saby_wasaby-cdn/TensorInter",
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ],
+      "minimize": false
+    },
+    {
+      "id": "bc439e5c-7ac9-4029-bafd-6ab17f28dace",
+      "name": "Controls-rating",
+      "path": "/path/to/project/Controls-rating",
+      "depends": [
+        "UI",
+        "Controls",
+        "Controls-default-theme"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "395ba131-ad47-b0a2-1524-d14d6d11072b",
+      "name": "ItemTemplates",
+      "path": "/path/to/project/ItemTemplates",
+      "depends": [
+        "Controls"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "636177e5-4d75-44fa-9173-977dc90ff191",
+      "name": "File",
+      "path": "/path/to/repo/sbis_rmi/src/client/File",
+      "required": false,
+      "depends": [
+        "WS.Core",
+        "Env",
+        "Types",
+        "TransportCore",
+        "Browser",
+        "UI"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "1b018a1a-16bc-4dd4-90da-cb57452e2d9d",
+      "name": "SAP",
+      "path": "/path/to/repo/sbis_rmi/src/client/SAP",
+      "required": false,
+      "featuresRequired": [
+        "GuestAccess"
+      ],
+      "depends": [],
+      "service": [
+        "intest-ps"
+      ]
+    },
+    {
+      "id": "f2ff19e5-57c3-4f54-b4c5-17f2eda27c0c",
+      "name": "SAPService",
+      "path": "/path/to/repo/sbis_rmi/src/client/SAPService",
+      "required": false,
+      "featuresProvided": [
+        "GuestAccess"
+      ],
+      "depends": [
+        "SAP",
+        "Types"
+      ],
+      "service": [
+        "intest-ps"
+      ]
+    }
+  ]
+}
