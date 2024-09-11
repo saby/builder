@@ -1,0 +1,91 @@
+[
+    {
+        "body": {
+            "id": "base_sabytheme",
+            "is_parent": true,
+            "overrides": null,
+            "selector": "base",
+            "styles": [
+                {
+                    "id": "99533867-4a8d-4533-8a75-142398d9abca",
+                    "is_parent": null,
+                    "metatype": "styles/palette",
+                    "properties": [
+                        {
+                            "base": true,
+                            "id": "aca0c146-c79f-4be7-9b44-f4037edf2b2f",
+                            "key": "primary_color",
+                            "metatypeproperty": "",
+                            "name": "Первичный",
+                            "values": [
+                                {
+                                    "theme_id": "9ba4e73e-c289-4e59-9f79-dd4428452921",
+                                    "value": {
+                                        "a": 1.0,
+                                        "h": 17.74194,
+                                        "l": 60.0,
+                                        "s": 91.17647,
+                                        "strict": false
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "base": false,
+                            "id": "abb5f3a6-7dd7-47d3-884d-1c1439ec2d2f",
+                            "key": "primary_text-color",
+                            "metatypeproperty": "styles/color",
+                            "name": "Текст",
+                            "values": [
+                                {
+                                    "theme_id": "9ba4e73e-c289-4e59-9f79-dd4428452921",
+                                    "value": {
+                                        "a": 1.0,
+                                        "h": 0.0,
+                                        "l": -21.0,
+                                        "s": -34.0,
+                                        "strict": false
+                                    },
+                                    "valuelinks": [
+                                        "primary_color"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "base": false,
+                            "id": "caea8134-4a64-437c-b002-0db7810be9ac",
+                            "key": "primary_hover_text-color",
+                            "metatypeproperty": "styles/color",
+                            "name": "Текст (при наведении)",
+                            "values": [
+                                {
+                                    "theme_id": "9ba4e73e-c289-4e59-9f79-dd4428452921",
+                                    "value": {
+                                        "a": 1.0,
+                                        "h": 0.0,
+                                        "l": -11.0,
+                                        "s": 112.0,
+                                        "strict": false
+                                    },
+                                    "valuelinks": [
+                                        "primary_text-color"
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "selector": "primary_color",
+                    "title": "Первичный"
+                }
+            ],
+            "title": "Базовая - расчеты",
+            "aspect_theme": [
+                {
+                    "identifier": "87688e42-71bf-11ee-b962-0242ac120002",
+                    "key": null
+                }
+            ]
+        }
+    }
+]
