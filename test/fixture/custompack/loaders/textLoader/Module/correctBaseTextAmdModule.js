@@ -1,0 +1,1 @@
+define("Module/amdModule.js", "/* eslint-disable */\ndefine('Module/amdModule', [], function() {\n   return {\n      _moduleName: 'Module/amdModule'\n   };\n});\n");

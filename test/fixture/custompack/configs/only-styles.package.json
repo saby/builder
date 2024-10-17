@@ -1,0 +1,6 @@
+{
+  "include": [
+    "css!InterfaceModule1/moduleStyle"
+  ],
+  "output": "only-styles.package.js"
+}
