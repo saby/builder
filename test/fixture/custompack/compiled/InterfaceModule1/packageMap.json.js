@@ -1,0 +1,1 @@
+define('InterfaceModule1/packageMap.json',[],function() { return {"InterfaceModule1/_private/module1":"InterfaceModule1/interfacemodule1-styles-in-js.package.min.js","InterfaceModule1/_private/module2":"InterfaceModule1/interfacemodule1-styles-in-js.package.min.js"};});

@@ -1,0 +1,18 @@
+[
+  "resources/SBISPlugin/packages/sbisplugin_mainWindow.package.min",
+  "resources/SBISPlugin/packages/sbisplugin_hintWindow.package.min",
+  "resources/SBISPlugin/packages/sbisplugin_authPage.package.min",
+  "resources/SBISPlugin/packages/sbisplugin_baseAuth.package.min",
+  "resources/SBISPlugin/packages/sbisplugin_utils.package.min",
+  "resources/SBISPlugin/packages/sbisplugin_certPage.package.min",
+  "resources/SBISPlugin/packages/sbisplugin_settingsPage.package.min",
+  "resources/SBISPluginBase/packages/sbisplugin_base.package.min",
+  "resources/SBISPluginBase/packages/sbisplugin_base_utils.package.min",
+  "resources/Screenshot/packages/settings.package.min",
+  "resources/NoticeCenterPlugin/NoticeCenterPluginNotice.package.min",
+  "resources/NoticeCenterPlugin/NoticeCenterPluginList.package.min",
+  "resources/SBISPlugin/packages/sbisplugin_feed.package.min",
+  "resources/SBISPlugin/packages/sbisplugin_editor.package.min",
+  "resources/SBISPluginBase/packages/online-superbundle.package.min",
+  "resources/SBISPluginBase/packages/page-superbundle.package.min"
+]
