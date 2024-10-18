@@ -1,0 +1,5 @@
+<script key="bundles" type="text/javascript" src="{{wsRoot}}ext/requirejs/config.js"></script>
+<script key="require" type="text/javascript" src="/cdn/requirejs/2.3.5-p3/require-min.js"></script>
+<script key="contents" type="text/javascript" src="{{resourceRoot}}contents.js"></script>
+<script key="bundles" type="text/javascript" src="{{resourceRoot}}bundles.js"></script>
+<img class="controls-CompositeView__tileImg" src="{{item.get(image) ? item.get(image) : '/resources/SBIS3.CONTROLS/themes/online/img/defaultFolder.png'}}" />
