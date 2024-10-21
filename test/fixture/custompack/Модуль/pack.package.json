@@ -1,0 +1,28 @@
+[{
+  "include": [
+    "Modul/*"
+  ],
+  "output": "test.package.js"
+}, {
+  "include": [
+    "Modul/*"
+  ],
+  "output": "test-brotli.package.js"
+}, {
+  "include": [
+    "Modul/*",
+    "ExternalInterfaceModule/*"
+  ],
+  "output": "TestBSort/test-projectMDeps.package.js"
+}, {
+  "includePackages": [
+      "InterfaceModule1/interfacemodule1-second.package.js"
+  ],
+  "output": "TestBSort/test-superbundle.package.js"
+}, {
+  "include": [
+    "Modul/*",
+    "InterfaceModule2/*"
+  ],
+  "output": "TestBSort/test-projectExtDeps.package.js"
+}]
