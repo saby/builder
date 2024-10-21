@@ -1,0 +1,16 @@
+node_modules
+.idea
+.DS_Store
+.vscode
+.nyc_output
+builder_compilation_errors.log
+builder_report.json
+eslint-report.log
+xunit-result.xml
+xunit.log
+check-code-result.xml
+dest
+test/workspace
+test/fixtureWS
+test/logs-folder
+coverage/
