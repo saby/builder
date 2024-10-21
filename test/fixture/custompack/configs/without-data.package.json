@@ -1,0 +1,6 @@
+{
+  "include": [
+    "Something/notExisted"
+  ],
+  "output": "without-data.package.js"
+}
