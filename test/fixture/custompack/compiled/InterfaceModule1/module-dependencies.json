@@ -1,0 +1,57 @@
+{
+  "links": {
+    "InterfaceModule1/_private/module1": [],
+    "InterfaceModule1/_private/module2": [],
+    "InterfaceModule1/amdModule": [
+      "css",
+      "css!InterfaceModule1/amdModule"
+    ],
+    "InterfaceModule1/library": []
+  },
+  "nodes": {
+    "InterfaceModule1/_private/module1": {
+      "amd": true,
+      "path": "resources/InterfaceModule1/_private/module1.min.js"
+    },
+    "InterfaceModule1/_private/module2": {
+      "amd": true,
+      "path": "resources/InterfaceModule1/_private/module2.min.js"
+    },
+    "InterfaceModule1/amdModule": {
+      "amd": true,
+      "path": "resources/InterfaceModule1/amdModule.min.js"
+    },
+    "InterfaceModule1/lang/ru/ru.json": {
+      "amd": true,
+      "path": "resources/InterfaceModule1/lang/ru/ru.json.min.js"
+    },
+    "InterfaceModule1/library": {
+      "amd": true,
+      "path": "resources/InterfaceModule1/library.min.js"
+    },
+    "css!InterfaceModule1/amdModule": {
+      "path": "resources/InterfaceModule1/amdModule.min.css"
+    },
+    "css!InterfaceModule1/amdModule.rtl": {
+      "path": "resources/InterfaceModule1/amdModule.rtl.min.css"
+    },
+    "css!InterfaceModule1/amdModule_ie": {
+      "path": "resources/InterfaceModule1/amdModule_ie.min.css"
+    },
+    "css!InterfaceModule1/moduleStyle": {
+      "path": "resources/InterfaceModule1/moduleStyle.min.css"
+    },
+    "css!InterfaceModule1/moduleStyle.rtl": {
+      "path": "resources/InterfaceModule1/moduleStyle.rtl.min.css"
+    },
+    "css!InterfaceModule1/moduleStyle_ie": {
+      "path": "resources/InterfaceModule1/moduleStyle_ie.min.css"
+    }
+  },
+  "packedLibraries": {
+    "InterfaceModule1/library": [
+      "InterfaceModule1/_private/module1",
+      "InterfaceModule1/_private/module2"
+    ]
+  }
+}
