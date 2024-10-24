@@ -1,0 +1,54 @@
+[
+  {
+    "body": {
+      "id": "default_sabytheme",
+      "is_parent": true,
+      "overrides": {
+        "base": {
+          "primary_color": {
+            "primary_color": {
+              "values": [
+                {
+                  "mode": "light",
+                  "value": {
+                    "a": 1.0,
+                    "h": 18.0,
+                    "l": 60.0,
+                    "s": 100.0,
+                    "strict": false
+                  }
+                },
+                {
+                  "mode": "dark",
+                  "value": {
+                    "a": 1.0,
+                    "h": 18.0,
+                    "l": 60.0,
+                    "s": 100.0,
+                    "strict": false
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "selector": "default",
+      "styles": [],
+      "title": "Базовая",
+      "aspect_theme": [
+        {
+          "identifier": "87688e42-71bf-11ee-b962-0242ac120002",
+          "key": null
+        }
+      ],
+      "parent": {
+        "id": "base_sabytheme",
+        "title": "Базовая - расчеты"
+      },
+      "properties": {
+        "staticTheme": "default"
+      }
+    }
+  }
+]
