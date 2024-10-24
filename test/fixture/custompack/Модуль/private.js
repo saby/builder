@@ -1,0 +1,1 @@
+define('Modul/private', ['optional!InterfaceModule1/amdModule', 'wml!Modul/private', 'optional!InterfaceModule2/amdModule'], function(module1, template){return {_moduleName: 'Modul/private', externalDeps: { module1: module1}, template: template};});
