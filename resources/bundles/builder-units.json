@@ -1,0 +1,15 @@
+[
+  "resources/superbundle-for-builder-tests.package.min",
+  "resources/Modul/test-brotli.package.min",
+  "resources/InterfaceModule1/interfacemodule1.package.min",
+  "resources/InterfaceModule1/interfacemodule1-second.package.min",
+  "resources/InterfaceModule1/interfacemodule1-styles-in-js.package.min",
+  "resources/InterfaceModule1/interfacemodule1-styles-in-js-optional.package.min",
+  "resources/Modul/Test/test.package.min",
+  "resources/Modul/TestASort/test.package.min",
+  "resources/Modul/TestBSort/test-projectMDeps.package.min",
+  "resources/Modul/TestBSort/test-projectExtDeps.package.min",
+  "resources/Modul/TestBSort/test-superbundle.package.min",
+  "resources/Modul/TestBSort/test-superbundle.package.min-asdasdasd",
+  "resources/Modul/TestBSort/test-superbundle.package.min-asdasdasdasdasd"
+]
