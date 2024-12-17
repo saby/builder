@@ -1,0 +1,10 @@
+[
+  "resources/Help/help-bundle.package.min",
+  "resources/Help/help-controls-bundle.package.min",
+  "resources/Help/help-sitescommon-bundle.package.min",
+  "resources/Help/help-superbundle.package.min",
+  "resources/NewDesign/sbisru-controls-superbundle.package.min",
+  "resources/NewDesign/sbisru-sitescommon-superbundle.package.min",
+  "resources/NewDesign/sbisru-superbundle.package.min",
+  "resources/NewDesign/sbisru-types-superbundle.package.min"
+]
