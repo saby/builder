@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ru" xml:lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+   <meta http-equiv="pragma" content="no-cache" />
+   <meta http-equiv="cache-control" content="no-cache" />
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta name="viewport" content="width=1024" />
+   <meta name="format-detection" content="telephone=no" />
+   <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+   <meta name="ws-access" content="%{ACCESS_LIST}"/>
+   <meta name="msapplication-config" content="none"/>
+   <link rel="preload" as="font" href="%{CDN_ROOT}EmojiFont/1.0.1/TFEmojiFont.woff2" type="font/woff2" crossorigin="crossorigin" />
+   <noscript>
+      <meta http-equiv="refresh" content="2; URL=%{APPLICATION_ROOT}noscript.html">
+   </noscript>
+
+   <title>Письмо/СБИС</title>
+   <link rel="stylesheet" id="ws-include-css" />
+
+   <script type="text/javascript" id="ws-config">
+      // new config support
+      window.wsConfig = {
+         wsRoot: '/testService/resources/WS.Core/',
+         appRoot: '/testService/',
+         resourceRoot: '/testService/resources/',
+         themeName: 'testTheme'
+      };
+   </script>
+   <script type="text/javascript" id="ws-include-components"></script>
+
+   %{APPEND_JAVASCRIPT}
+   <meta
+      name="data-provider"
+      data-alias="is"
+      content="Tema_Skrepka/data-providers/is.js" />
+
+   <meta
+      name="data-provider"
+      data-alias="cookie"
+      content="Tema_Skrepka/data-providers/cookies.js" />
+</head>
+
+<body class="ws-server-generated ws-narrow-page narrow910 ws-body-no-scroll ws-sticky-header__wrapper %{CURRENT_LOCALE}">
+<div id="content" class="ws-root-template" data-template-name="TestModule/testComponent">
+   <div class="gt-loader-indicator">
+      <div class="gt-loader-indicator__main">
+         <div class="gt-loader-indicator__image">
+            <img src="%{RESOURCE_ROOT}SBIS3.CONTROLS/themes/online/img/ajax-loader-indicator.gif">
+         </div>
+         <div class="gt-loader-indicator__caption">
+            Загрузка
+         </div>
+      </div>
+   </div>
+</div>
+</body>
+</html>

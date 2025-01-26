@@ -1,0 +1,56 @@
+{
+  "modules": [
+    {
+      "name": "First",
+      "files": {
+        "js": [
+          ["First/aaa", ["First/bbb", "First/ddd", "First/eee"]],
+          ["First/bbb", ["First/ccc"]],
+          ["First/ccc", ["json!First/file.json"]],
+          ["First/ddd", ["css!First/style", "Second/aaa"]],
+          ["First/eee", ["css!First/style", "Third/aaa"]]
+        ],
+        "css": [
+          "First/style"
+        ],
+        "json": [
+          "json!First/file.json"
+        ]
+      }
+    },
+    {
+      "name": "Second",
+      "files": {
+        "js": [
+          ["Second/aaa", ["Second/bbb", "Second/ddd"]],
+          ["Second/bbb", ["Second/ccc"]],
+          ["Second/ccc", ["json!Second/file.json"]],
+          ["Second/ddd", ["css!Second/style"]]
+        ],
+        "css": [
+          "Second/style"
+        ],
+        "json": [
+          "json!Second/file.json"
+        ]
+      }
+    },
+    {
+      "name": "Third",
+      "files": {
+        "js": [
+          ["Third/aaa", ["Third/bbb", "Third/ddd"]],
+          ["Third/bbb", ["Third/ccc"]],
+          ["Third/ccc", ["json!Third/file.json"]],
+          ["Third/ddd", ["css!Third/style"]]
+        ],
+        "css": [
+          "Third/style"
+        ],
+        "json": [
+          "json!Third/file.json"
+        ]
+      }
+    }
+  ]
+}
