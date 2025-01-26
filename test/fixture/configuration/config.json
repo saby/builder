@@ -1,0 +1,17 @@
+{
+  "logs": "./logs",
+  "output": "./output",
+  "cache": "./cache",
+  "modules": [
+    {
+      "name": "Dashboard-icons",
+      "path": "/home/local/TENSOR-CORP/fa.kolbeshin/work/repos/sbis/engine/client/Dashboard-icons",
+      "changedFiles": [
+        "./designtime/icon-AddBlock.svg"
+      ],
+      "deletedFiles": [
+        "./designtime/icon-Desktop.svg"
+      ]
+    }
+  ]
+}
